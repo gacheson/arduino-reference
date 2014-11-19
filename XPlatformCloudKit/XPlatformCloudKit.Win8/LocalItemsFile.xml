@@ -8,7 +8,7 @@
         To disable, set "EnableLocalItemsFile = false" in AppSettings.cs </br><a href="http://bing.com">By the way, I am html, click me and I'll take you to Bing</a>
       ]]>
     </description>
-    <image>http://www.irunoninsulin.com/wp-content/uploads/2010/06/green-check-mark.jpg</image>
+    <image>/Assets/Logo.png</image>
     <group>Local Data</group>
   </item>
   <item>
