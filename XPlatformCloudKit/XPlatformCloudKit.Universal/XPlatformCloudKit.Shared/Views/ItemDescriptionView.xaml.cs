@@ -362,12 +362,12 @@ namespace XPlatformCloudKit.Views
         {
             if(AppSettings.MaximizeYoutubeVideos)
             {
-                if(IsYoutubeLink(((Item)args.NewValue).Description))
-                {
+                //if(IsYoutubeLink(((Item)args.NewValue).Description) || ((Item)args.NewValue).)
+                //{
                     //Youtube videos get full screen
                     var panel = sender as Panel;
                     panel.Visibility = Visibility.Collapsed;
-                }
+                //}
             }
         }
     }
