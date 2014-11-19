@@ -94,14 +94,14 @@ namespace XPlatformCloudKit
 
         //Determines whether to use the Light theme (white background / black text) over the default Dark theme
         //(black background / white text)
-        public static bool UseLightThemeForWindows8X = true;
+        public static bool UseLightThemeForWindows8X = false;
         //To change specifics value of the chosen theme, i.e. Font Color throughout the Windows 8.0 application
         //Open XPlatformCloudKit.Win8/Common/StandardStyles.xaml and look for the <!-- Theme Overrides --> Section
         //Uncomment the portion(s) of the theme you wish to override
 
         //Determines whether a background image should be used in the Windows 8 app.
         //Set to false to use standard theme. Set to true to use wallpaper. To change the wall paper, replace Wallpaper.png in the Assets folder.
-        public static bool EnableBackgroundWin8X = false;
+        public static bool EnableBackgroundWin8X = true;
 
         //Url to your privacy policy
         //The Windows Store now requires that your privacy policy be specific to your app as of April 7, 2014 
@@ -145,7 +145,7 @@ namespace XPlatformCloudKit
         #region Advanced ItemDescriptionView / Webview Options for Windows 8.X and Windows Phone 8.X projects
         //Determines background color of WebView Control used behind Description in ItemDescriptionView.xaml.cs
         //Set to "Auto" to determine based on theme background or override using hex color string i.e. "#FFFFFF" for white, "#000000" for black
-        public static string BackgroundColorOfDescription = "Auto";
+        public static string BackgroundColorOfDescription = "#00979D";
 
         //Determines Font color of WebView Control used to display Description in ItemDescriptionView.xaml.cs
         //Set to "Auto" to determine based on theme background or override using hex color string i.e. "#FFFFFF" for white, "#000000" for black
