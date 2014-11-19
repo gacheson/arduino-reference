@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<items xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <item>
+    <title>If you see me, "LocalItemsFile" is enabled!</title>
+    <subtitle>Warning</subtitle>
+    <description>
+      <![CDATA[
+        To disable, set "EnableLocalItemsFile = false" in AppSettings.cs </br><a href="http://bing.com">By the way, I am html, click me and I'll take you to Bing</a>
+      ]]>
+    </description>
+    <image>http://www.irunoninsulin.com/wp-content/uploads/2010/06/green-check-mark.jpg</image>
+    <group>Local Data</group>
+  </item>
+  <item>
+    <title>Shi Tzu</title>
+    <subtitle>small</subtitle>
+    <description>
+      A shih tzu is a toy dog breed weighing 5–7.25 kilograms with long silky hair. The breed originated in China. Shih Tzu were officially recognized by the American Kennel Club in 1969. The name is both singular and plural.
+    </description>
+    <image>http://us.123rf.com/400wm/400/400/isselee/isselee0906/isselee090600219/5085394-grey-shih-tzu-6-years-old-in-front-of-a-white-background.jpg</image>
+    <group>Dog</group>
+  </item>
+  <item>
+    <title>HTML Example</title>
+    <subtitle>This uses JavaScript, too!</subtitle>
+    <description>
+      <![CDATA[
+<!DOCTYPE html>
+<html>
+
+<body>
+    <style>
+        * {
+            font-family: "Segoe UI", Arial, sans-serif;
+        }
+        .example {
+            background-color: red;
+            color: #FFFFFF;
+            width: 200px;
+            height: 200px;
+            padding: 10px;
+        }
+        #demo {
+            border: 1px solid #000;
+        }
+    </style>
+
+    <p>There are all kinds of <span style="color: blue">super fun</span> things you can do with HTML in your XML files.</p>
+    <p>You can use <a href="http://jsbin.com">http://jsbin.com</a> to preview your HTML. Wrap your HTML markup in a CDATA block</p>
+
+    <h2>HTML</h2>
+    <p>You can add links to your app. For instance, you can add a link to <a href="http://www.dominos.com" target="_blank">order Dominos pizza</a>. If you leave default settings on, the website will open within the app. If you want to link to websites within
+        your app but have them open up in the user's browser, you can add <span style="color:red">target="_blank"</span> to your anchor tags and change the AppSettings.cs file to allow for it. By default, it is disabled.</p>Or you could just call them at
+    <a
+    href="tel:(713) 747-3800">(713) 747-3800</a>. This will initiate a phone call in WP8 or Windows 8 via Skype or other phone apps.
+
+        <p>Add images to your pages.</p>
+
+        <div>
+            <img src="http://3.bp.blogspot.com/--P7JWhCCr1A/UecFPgmGWlI/AAAAAAAAGWg/P9Tor4nWi2A/s1600/madden-divider-line.png" width="500" height="15" alt="border">
+        </div>
+
+        <p>You might want to list things.</p>
+        <ul>
+            <li>Item 1</li>
+            <li>Item 2</li>
+        </ul>
+
+        <p>You can add a table. And center it using inline CSS.</p>
+
+        <table border="1" style="margin: 0 auto;">
+            <tr>
+                <th>
+                    Column 1
+                </th>
+                <th>
+                    Column 2
+                </th>
+            </tr>
+            <tr>
+                <td>
+                    Row 1
+                </td>
+                <td>
+                    abcde
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Row 2
+                </td>
+                <td>
+                    fghij
+                </td>
+            </tr>
+        </table>
+
+        <p>You can also style things with a style block.</p>
+
+        <div class="example">
+            This div has a class of 'example'.
+        </div>
+
+
+        <h2>JavaScript</h2>
+        <p>Yes, you can even run JavaScript from within this WebView.</p>
+
+        <span id="demo">
+            Hey, what day is it??
+          </span>
+        <button onclick="myFunction()">
+            JavaScript Button
+        </button>
+        <script>
+            function myFunction() {
+                var d = new Date();
+                var weekday = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+                var x = document.getElementById("demo");
+                x.innerHTML = "Hey, it's " + weekday[d.getDay()] + "!";
+            }
+        </script>
+
+        <h2>iframes</h2>
+        <p>Want to embed another webpage in your app? You can do that using an iframe!</p>
+
+        <iframe src="http://en.m.wikipedia.org/wiki/Ball_lightning" width="400" height="400"></iframe>
+
+  <div><img src="http://3.bp.blogspot.com/--P7JWhCCr1A/UecFPgmGWlI/AAAAAAAAGWg/P9Tor4nWi2A/s1600/madden-divider-line.png" width="500" height="15" alt="border"></div>
+
+
+        <p>...and this is <span style="color:green">just the beginning.</span></p>
+
+        <p>What else can <b>you</b> think of to do?</p>
+</body>
+</html>
+    
+      ]]>
+    </description>
+    <image>http://101fundraising.org/wp-content/uploads/2013/09/lightbulb.gif</image>
+    <group>HTML</group>
+  </item>
+</items>
