@@ -44,6 +44,7 @@
     </Page>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="$(MSBuildThisFileDirectory)Assets\Abacus.png" />
     <Content Include="$(MSBuildThisFileDirectory)Assets\Logo.png" />
     <Content Include="$(MSBuildThisFileDirectory)Assets\Logo44px.png" />
     <Content Include="$(MSBuildThisFileDirectory)Assets\Logo71px.png" />
