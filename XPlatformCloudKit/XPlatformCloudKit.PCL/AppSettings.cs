@@ -154,11 +154,11 @@ namespace XPlatformCloudKit
 
         //Determines whether hyperlinks can be clicked in ItemDescriptionView.xaml for both Windows 8 and Windows Phone 8 projects
         //Sometimes, store may fail apps which contain hyperlinks that navigate improperly when clicked, this disables them
-        public static bool DisableHyperLinksInItemDescriptionView = false;
+        public static bool DisableHyperLinksInItemDescriptionView = true;
 
         //Determines whether hyperlinks with target="_blank" are rewritten to target="_self"
         //When enabled, hyperlinks will not open in a new tab
-        public static bool DisableOpeningHyperLinksInNewTab = true;
+        public static bool DisableOpeningHyperLinksInNewTab = false;
         #endregion
 
         #region App Promo Options for Windows 8X and Windows Phone 8X projects
