@@ -20,7 +20,7 @@ namespace XPlatformCloudKit
     {
         #region Global Options
         //The name of your applicaion, this value appears at the top of your app
-        public static string ApplicationName = "My Application";
+        public static string ApplicationName = "Arduino Reference";
 
         //Timeframe in minutes to store data before making new request to Data Source
         //set to negative value to disable caching
@@ -28,7 +28,7 @@ namespace XPlatformCloudKit
         #endregion
 
         #region AzureMobileService Settings
-        public static bool EnableAzureMobileService = true;  //Use Mobile Service located @ MobileServiceAddress with Key set to MobileServiceApplicationKey
+        public static bool EnableAzureMobileService = false;  //Use Mobile Service located @ MobileServiceAddress with Key set to MobileServiceApplicationKey
 
         //Mark true to create the Initial Schema if you are running for the first time against a brand new Mobile Service
         //Be sure you have created a table named "Item" and have permission to update with app key
@@ -46,7 +46,7 @@ namespace XPlatformCloudKit
         #endregion
 
         #region RssService Settings
-        public static bool EnableRssService = true;//Use RssAddressCollection 
+        public static bool EnableRssService = false;//Use RssAddressCollection 
         public static int RssMaxItemsPerFeed = -1; //The Maximum number of items to fetch for each feed. Enter Negative value to fetch all.
         public static bool RssOrderDescending = false; // The order items in the feed should be rendered on screen. News is usually descending (newest first), strategy guides are usually ascending (viewed in order).
 
