@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <items xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+
+  //structure - setup()
   <item>
     <title>setup()</title>
     <subtitle></subtitle>
@@ -53,4 +55,1419 @@ void loop()
     <image>/Assets/Abacus.png</image>
     <group>Structure</group>
   </item>
+  //Structure - loop()
+  <item>
+    <title>loop()</title>
+    <subtitle></subtitle>
+    <description>
+      <![CDATA[
+<!DOCTYPE html>
+<html>
+
+<body>
+    <style>
+        * {
+            font-family: "Segoe UI", Arial, sans-serif;
+        }
+        .example {
+            background-color: red;
+            color: #FFFFFF;
+            width: 200px;
+            height: 200px;
+            padding: 10px;
+        }
+        #demo {
+            border: 1px solid #000;
+        }
+    </style>
+<div id="wikitext">
+<p>After creating a setup() function, which initializes and sets the initial values, the loop() function does precisely what its name suggests, and loops consecutively, allowing your program to change and respond.  Use it to actively control the Arduino board.
+</p>
+<p class="vspace"></p><h3>Example</h3>
+<pre> 
+const int buttonPin = 3;
+
+// setup initializes serial and the button pin
+void setup()
+{
+  Serial.begin(9600);
+  pinMode(buttonPin, INPUT);
+}
+
+// loop checks the button pin each time,
+// and will send serial if it is pressed
+void loop()
+{
+  if (digitalRead(buttonPin) == HIGH)
+    Serial.write('H');
+  else
+    Serial.write('L');
+
+  delay(1000);
+}
+
+</pre>
+</div>
+    
+</body>
+</html>
+    
+      ]]>
+    </description>
+    <image>/Assets/Abacus.png</image>
+    <group>Structure</group>
+  </item>
+  //constant - high/low
+  <item>
+    <title>HIGH | LOW</title>
+    <subtitle></subtitle>
+    <description>
+      <![CDATA[
+<div id="wikitext">
+<p class="vspace"></p><h3>Defining Pin Levels, HIGH and LOW</h3>
+<p>When reading or writing to a digital pin there are only two possible values a pin can take/be-set-to: <strong>HIGH</strong> and <strong>LOW</strong>.
+</p>
+<p class="vspace"></p><p><strong>HIGH</strong>
+</p>
+<p class="vspace"></p><p>The meaning of HIGH (in reference to a pin) is somewhat different depending on whether a pin is set to an INPUT or OUTPUT. 
+When a pin is configured as an INPUT with pinMode, and read with digitalRead, the microcontroller will report HIGH if a voltage of 3 volts or more is present at the pin. 
+</p>
+<p class="vspace"></p><p>A pin may also be configured as an INPUT with pinMode, and subsequently made HIGH with digitalWrite, this will set the internal 20K pullup resistors, which will <em>steer</em> the input pin to a HIGH reading unless it is pulled LOW by external circuitry. This is how INPUT_PULLUP works as well
+</p>
+<p class="vspace"></p><p>When a pin is configured to OUTPUT with pinMode, and set to HIGH with digitalWrite, the pin is at 5 volts. In this state it can <em>source</em> current, e.g. light an LED that is connected through a series resistor to ground, or to another pin configured as an output, and set to LOW.
+</p>
+<p class="vspace"></p><p><strong>LOW</strong>
+</p>
+<p class="vspace"></p><p>The meaning of LOW also has a different meaning depending on whether a pin is set to INPUT or OUTPUT. When a pin is configured as an INPUT with pinMode, and read with digitalRead, the microcontroller will report LOW if a voltage of 2 volts or less is present at the pin. 
+</p>
+<p class="vspace"></p><p>When a pin is configured to OUTPUT with pinMode, and set to LOW with digitalWrite, the pin is at 0 volts. In this state it can <em>sink</em> current, e.g. light an LED that is connected through a series resistor to, +5 volts, or to another pin configured as an output, and set to HIGH.
+</p>
+</div>
+      ]]>
+    </description>
+    <image>/Assets/Abacus.png</image>
+    <group>Constants</group>
+  </item>
+  //constant - input/output/input_pullup
+  <item>
+    <title>INPUT | OUTPUT | INPUT_PULLUP</title>
+    <subtitle></subtitle>
+    <description>
+      <![CDATA[
+          <div id="wikitext">
+          <p class="vspace"></p><h3>Defining Digital Pins, INPUT, INPUT_PULLUP, and OUTPUT</h3>
+          <p>Digital pins can be used as <strong>INPUT</strong>, <strong>INPUT_PULLUP</strong>, or <strong>OUTPUT</strong>. Changing a pin with pinMode() changes the electrical behavior of the pin.
+          </p>
+          <p class="vspace"></p><h4>Pins Configured as INPUT</h4>
+          <p>Arduino (Atmega) pins configured as <strong>INPUT</strong> with pinMode() are said to be in a high-impedance state. Pins configured as INPUT make extremely small demands on the circuit that they are sampling, equivalent to a series resistor of 100 Megohms in front of the pin. This makes them useful for reading a sensor, but not powering an LED.
+          </p>
+          <p class="vspace"></p><p>If you have your pin configured as an INPUT, you will want the pin to have a reference to ground, often accomplished with a pull-down resistor (a resistor going to ground) as described in the <a class="wikilink" href="http://arduino.cc/en/Tutorial/DigitalReadSerial">Digital Read Serial</a> tutorial.
+          </p>
+          <p class="vspace"></p><h4>Pins Configured as INPUT_PULLUP</h4>
+          <p>The Atmega chip on the Arduino has internal pull-up resistors (resistors that connect to power internally) that you can access. If you prefer to use these instead of external pull-down resistors, you can use the <strong>INPUT_PULLUP</strong> argument in pinMode(). This effectively inverts the behavior, where HIGH means the sensor is off, and LOW means the sensor is on. See the  <a class="wikilink" href="http://arduino.cc/en/Tutorial/InputPullupSerial">Input Pullup Serial</a> tutorial for an example of this in use.
+          </p>
+          <p class="vspace"></p><h4>Pins Configured as Outputs</h4>
+          <p>Pins configured as <strong>OUTPUT</strong> with pinMode() are said to be in a low-impedance state. This means that they can provide a substantial amount of current to other circuits. Atmega pins can source (provide positive current) or sink (provide negative current) up to 40 mA (milliamps) of current to other devices/circuits. This makes them useful for powering LED's but useless for reading sensors. Pins configured as outputs can also be damaged or destroyed if short circuited to either ground or 5 volt power rails. The amount of current provided by an Atmega pin is also not enough to power most relays or motors, and some interface circuitry will be required. 
+          </p>
+          </div>
+      ]]>
+    </description>
+    <image>/Assets/Abacus.png</image>
+    <group>Constants</group>
+  </item>
+  //constant - led_builtin
+  <item>
+    <title>LED_BUILTIN</title>
+    <subtitle></subtitle>
+    <description>
+      <![CDATA[
+          <div id="wikitext">
+          <p class="vspace"></p><h3>LED_BUILTIN</h3>
+          <p>Most Arduino boards have a pin connected to an on-board LED in series with a resistor. LED_BUILTIN is a drop-in replacement for manually declaring this pin as a variable. Most boards have this LED connected to digital pin 13. 
+          </p>
+          </div>
+      ]]>
+    </description>
+    <image>/Assets/Abacus.png</image>
+    <group>Constants</group>
+  </item>
+  //Utilities - PROGMEM
+  <item>
+    <title>PROGMEM</title>
+    <subtitle></subtitle>
+    <description>
+      <![CDATA[
+          <div id="wikitext">
+          <p>Store data in flash (program) memory instead of SRAM.  There's a description of the various <a class="urllink" href="http://www.arduino.cc/playground/Learning/Memory" rel="nofollow">types of memory</a> available on an Arduino board.
+          </p>
+          <p class="vspace"></p><p>The PROGMEM keyword is a variable modifier, it should be used only with the datatypes defined in pgmspace.h. It tells the compiler "put this information into flash memory", instead of into SRAM, where it would normally go.
+          </p>
+          <p class="vspace"></p><p>PROGMEM is part of the <a class="urllink" href="http://www.nongnu.org/avr-libc/user-manual/group__avr__pgmspace.html" target="_blank" rel="nofollow">pgmspace.h</a> library. So you first need to include the library at the top your sketch, like this:
+          </p><pre>#include &lt;avr/pgmspace.h&gt;
+
+          </pre><h4>Syntax</h4>
+          <pre>dataType variableName[] PROGMEM = {dataInt0, dataInt1, dataInt3...}; 
+          </pre>
+          <p class="vspace"></p><ul><li>program memory dataType - any program memory variable type (see below)
+          </li><li>variableName - the name for your array of data
+          </li></ul><p class="vspace"></p><p>Note that because PROGMEM is a variable modifier, there is no hard and fast rule about where it should go, so the Arduino compiler accepts all of the definitions below, which are also synonymous. However experiments have indicated that, in various versions of Arduino (having to do with GCC version), PROGMEM may work in one location and not in another. The "string table" example below has been tested to work with Arduino 13. Earlier versions of the IDE may work better if PROGMEM is included after the variable name.
+          </p>
+          <p class="vspace"></p><pre>dataType variableName[] PROGMEM = {};   // use this form
+          dataType PROGMEM variableName[] = {};   // not this one
+          PROGMEM  dataType  variableName[] = {}; // use this form
+
+          </pre>
+          <p class="vspace"></p><p>While PROGMEM could be used on a single variable, it is really only worth the fuss if you have a larger block of data that needs to be stored, which is usually easiest in an array, (or another C data structure beyond our present discussion).
+          </p>
+          <p class="vspace"></p><p>Using PROGMEM is also a two-step procedure. After getting the data into Flash memory, it requires special methods (functions), also defined in the <a class="urllink" href="http://www.nongnu.org/avr-libc/user-manual/group__avr__pgmspace.html" target="_blank" rel="nofollow">pgmspace.h</a> library, to read the data from program memory back into SRAM, so we can do something useful with it.
+          </p>
+          <p class="vspace"></p><p>As mentioned above, it is important to use the datatypes outlined in <a class="urllink" href="http://www.nongnu.org/avr-libc/user-manual/group__avr__pgmspace.html" target="_blank" rel="nofollow">pgmspace.h</a>. Some cryptic bugs are generated by using ordinary datatypes for program memory calls. Below is a list of variable types to use. Floating point numbers in program memory do not appear to be supported.
+          </p>
+          <p class="vspace"></p><pre> prog_char      - a signed char (1 byte) -127 to 128
+           prog_uchar     - an unsigned char (1 byte) 0 to 255
+           prog_int16_t   - a signed int (2 bytes) -32,767 to 32,768
+           prog_uint16_t  - an unsigned int (2 bytes) 0 to 65,535
+           prog_int32_t   - a signed long (4 bytes) -2,147,483,648 to * 2,147,483,647.
+           prog_uint32_t  - an unsigned long (4 bytes) 0 to 4,294,967,295
+          </pre>
+          <p class="vspace"></p><h4>Example</h4>
+          <p>The following code fragments illustrate how to read and write unsigned chars (bytes) and ints (2 bytes) to PROGMEM.
+          </p><pre>#include &lt;avr/pgmspace.h&gt;
+
+
+          // save some unsigned ints
+          PROGMEM  prog_uint16_t charSet[]  = { 65000, 32796, 16843, 10, 11234};
+
+          // save some chars
+          prog_uchar signMessage[] PROGMEM  = {"I AM PREDATOR,  UNSEEN COMBATANT. CREATED BY THE UNITED STATES DEPART"};
+
+          unsigned int displayInt;
+          int k;    // counter variable
+          char myChar;  
+
+          // read back a 2-byte int
+           displayInt = pgm_read_word_near(charSet + k)
+
+          // read back a char 
+          myChar =  pgm_read_byte_near(signMessage + k); 
+
+
+          </pre>
+          <p class="vspace"></p><p><strong>Arrays of strings</strong>
+          </p>
+          <p class="vspace"></p><p>It is often convenient when working with large amounts of text, such as a project with an LCD display, to setup an array of strings. Because strings themselves are arrays, this is in actually an example of a two-dimensional array. 
+          </p>
+          <p class="vspace"></p><p>These tend to be large structures so putting them into program memory is often desirable. The code below illustrates the idea.
+          </p>
+          <p class="vspace"></p><pre>
+          /*
+           PROGMEM string demo
+           How to store a table of strings in program memory (flash), 
+           and retrieve them.
+
+           Information summarized from:
+           http://www.nongnu.org/avr-libc/user-manual/pgmspace.html
+
+           Setting up a table (array) of strings in program memory is slightly complicated, but
+           here is a good template to follow. 
+
+           Setting up the strings is a two-step process. First define the strings.
+
+          */
+
+          #include &lt;avr/pgmspace.h&gt;
+          prog_char string_0[] PROGMEM = "String 0";   // "String 0" etc are strings to store - change to suit.
+          prog_char string_1[] PROGMEM = "String 1";
+          prog_char string_2[] PROGMEM = "String 2";
+          prog_char string_3[] PROGMEM = "String 3";
+          prog_char string_4[] PROGMEM = "String 4";
+          prog_char string_5[] PROGMEM = "String 5";
+
+
+          // Then set up a table to refer to your strings.
+
+          PROGMEM const char *string_table[] = 	   // change "string_table" name to suit
+          {   
+            string_0,
+            string_1,
+            string_2,
+            string_3,
+            string_4,
+            string_5 };
+
+          char buffer[30];    // make sure this is large enough for the largest string it must hold
+
+          void setup()			  
+          {
+            Serial.begin(9600);
+          }
+
+
+          void loop()			  
+          {
+            /* Using the string table in program memory requires the use of special functions to retrieve the data.
+               The strcpy_P function copies a string from program space to a string in RAM ("buffer"). 
+               Make sure your receiving string in RAM  is large enough to hold whatever
+               you are retrieving from program space. */
+
+
+            for (int i = 0; i &lt; 6; i++)
+            {
+              strcpy_P(buffer, (char*)pgm_read_word(&amp;(string_table[i]))); // Necessary casts and dereferencing, just copy. 
+              Serial.println( buffer );
+              delay( 500 );
+            }
+          }
+          </pre>
+          </div>
+      ]]>
+    </description>
+    <image>/Assets/Abacus.png</image>
+    <group>Utilities</group>
+  </item>
+  //Digital I/O - pinMode()
+  <item>
+    <title>pinMode()</title>
+    <subtitle></subtitle>
+    <description>
+      <![CDATA[
+        <div id="wikitext">
+        <h4>Description</h4>
+        <p>Configures the specified pin to behave either as an input or an output. See the description of  <a class="wikilink" href="http://arduino.cc/en/Tutorial/DigitalPins">digital pins</a> for details on the functionality of the pins.
+        </p>
+        <p class="vspace"></p><p>As of Arduino 1.0.1, it is possible to enable the internal pullup resistors with the mode INPUT_PULLUP.  Additionally, the INPUT mode explicitly disables the internal pullups.
+        </p>
+        <p class="vspace"></p><h4>Syntax</h4>
+        <p>pinMode(pin, mode)
+        </p>
+        <p class="vspace"></p><h4>Parameters</h4>
+        <p>pin: the number of the pin whose mode you wish to set
+        </p>
+        <p class="vspace"></p><p>mode: <a class="wikilink" href="http://arduino.cc/en/Reference/Constants">INPUT</a>, <a class="wikilink" href="http://arduino.cc/en/Reference/Constants">OUTPUT</a>, or <a class="wikilink" href="http://arduino.cc/en/Reference/Constants">INPUT_PULLUP</a>. (see the  <a class="wikilink" href="http://arduino.cc/en/Tutorial/DigitalPins">digital pins</a> page for a more complete description of the functionality.)
+        </p>
+        <p class="vspace"></p><h4>Returns</h4>
+        <p>None
+        </p>
+        <p class="vspace"></p><h4>Example</h4>
+        <p>
+        <div class="sourceblock " id="sourceblock1">
+          <div class="sourceblocktext"><div class="arduino"><br>
+        <br>
+        <span class="kw1">int</span> ledPin <span class="sy0">=</span> <span class="nu0">13</span><span class="sy0">;</span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="co1">// LED connected to digital pin 13</span><br>
+        <br>
+        <span class="kw1">void</span> <span class="kw3">setup</span><span class="br0">(</span><span class="br0">)</span><br>
+        <span class="br0">{</span><br>
+        &nbsp; <span class="kw1">pinMode</span><span class="br0">(</span>ledPin<span class="sy0">,</span> <span class="kw2">OUTPUT</span><span class="br0">)</span><span class="sy0">;</span> &nbsp; &nbsp; &nbsp;<span class="co1">// sets the digital pin as output</span><br>
+        <span class="br0">}</span><br>
+        <br>
+        <span class="kw1">void</span> <span class="kw3">loop</span><span class="br0">(</span><span class="br0">)</span><br>
+        <span class="br0">{</span><br>
+        &nbsp; <span class="kw1">digitalWrite</span><span class="br0">(</span>ledPin<span class="sy0">,</span> <span class="kw2">HIGH</span><span class="br0">)</span><span class="sy0">;</span> &nbsp; <span class="co1">// sets the LED on</span><br>
+        &nbsp; <span class="kw1">delay</span><span class="br0">(</span><span class="nu0">1000</span><span class="br0">)</span><span class="sy0">;</span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span class="co1">// waits for a second</span><br>
+        &nbsp; <span class="kw1">digitalWrite</span><span class="br0">(</span>ledPin<span class="sy0">,</span> <span class="kw2">LOW</span><span class="br0">)</span><span class="sy0">;</span> &nbsp; &nbsp;<span class="co1">// sets the LED off</span><br>
+        &nbsp; <span class="kw1">delay</span><span class="br0">(</span><span class="nu0">1000</span><span class="br0">)</span><span class="sy0">;</span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span class="co1">// waits for a second</span><br>
+        <span class="br0">}</span></div></div>
+          <div class="sourceblocklink"><a href="http://arduino.cc/en/Reference/PinMode?action=sourceblock&amp;num=1" type="text/plain">[Get Code]</a></div>
+        </div>
+        <p></p>
+        <p class="vspace"></p><h4>Note</h4>
+        <p>The analog input pins can be used as digital pins, referred to as A0, A1, etc.  
+        </p>
+        </div>
+      ]]>
+    </description>
+    <image>/Assets/Abacus.png</image>
+    <group>Digital I/O</group>
+  </item>
+  //Digital I/O - digitalWrite()
+  <item>
+    <title>digitalWrite()</title>
+    <subtitle></subtitle>
+    <description>
+      <![CDATA[
+          <div id="wikitext">
+          <h4>Description</h4>
+          <p>Write a <a class="wikilink" href="http://arduino.cc/en/Reference/Constants">HIGH</a> or a <a class="wikilink" href="http://arduino.cc/en/Reference/Constants">LOW</a> value to a digital pin.
+          </p>
+          <p class="vspace"></p><p>If the pin has been configured as an OUTPUT with <a class="wikilink" href="http://arduino.cc/en/Reference/PinMode">pinMode</a>(), its voltage will be set to the corresponding value: 5V (or 3.3V on 3.3V boards) for HIGH, 0V (ground) for LOW.
+          </p>
+          <p class="vspace"></p><p>If the pin is configured as an INPUT, digitalWrite() will enable (HIGH) or disable (LOW) the internal pullup on the input pin. It is recommended to set the <a class="wikilink" href="http://arduino.cc/en/Reference/PinMode">pinMode</a>() to  <a class="wikilink" href="http://arduino.cc/en/Reference/Constants">INPUT_PULLUP</a> to enable the internal pull-up resistor. See the <a class="wikilink" href="http://arduino.cc/en/Tutorial/DigitalPins">digital pins tutorial</a> for more information.
+          </p>
+          <p class="vspace"></p><p>NOTE: If you do not set the pinMode() to OUTPUT, and connect an LED to a pin, when calling digitalWrite(HIGH), the LED may appear dim. Without explicitly setting pinMode(), digitalWrite() will have enabled the internal pull-up resistor, which acts like a large current-limiting resistor.
+          </p>
+          <p class="vspace"></p><h4>Syntax</h4>
+          <p>digitalWrite(pin, value)
+          </p>
+          <p class="vspace"></p><h4>Parameters</h4>
+          <p>pin: the pin number
+          </p>
+          <p class="vspace"></p><p>value: <a class="wikilink" href="http://arduino.cc/en/Reference/Constants">HIGH</a> or <a class="wikilink" href="http://arduino.cc/en/Reference/Constants">LOW</a>
+          </p>
+          <p class="vspace"></p><h4>Returns</h4>
+          <p>none
+          </p>
+          <p class="vspace"></p><h4>Example</h4>
+          <pre> 
+          int ledPin = 13;                 // LED connected to digital pin 13
+
+          void setup()
+          {
+            pinMode(ledPin, OUTPUT);      // sets the digital pin as output
+          }
+
+          void loop()
+          {
+            digitalWrite(ledPin, HIGH);   // sets the LED on
+            delay(1000);                  // waits for a second
+            digitalWrite(ledPin, LOW);    // sets the LED off
+            delay(1000);                  // waits for a second
+          }
+
+          </pre>
+          <p class="vspace"></p><p>Sets pin 13 to HIGH, makes a one-second-long delay, and sets the pin back to LOW.
+          </p>
+          <p class="vspace"></p><h4>Note</h4>
+          <p>The analog input pins can be used as digital pins, referred to as A0, A1, etc.  
+          </p>
+          </div>
+      ]]>
+    </description>
+    <image>/Assets/Abacus.png</image>
+    <group>Digital I/O</group>
+  </item>
+  //Digital I/O - digitalRead()
+  <item>
+    <title>digitalRead()</title>
+    <subtitle></subtitle>
+    <description>
+      <![CDATA[
+          <div id="wikitext">
+          <h4>Description</h4>
+          <p>Reads the value from a specified digital pin, either <a class="wikilink" href="http://arduino.cc/en/Reference/Constants">HIGH</a> or <a class="wikilink" href="http://arduino.cc/en/Reference/Constants">LOW</a>.
+          </p>
+          <p class="vspace"></p><h4>Syntax</h4>
+          <p>digitalRead(pin)
+          </p>
+          <p class="vspace"></p><h4>Parameters</h4>
+          <p>pin: the number of the digital pin you want to read (<em>int</em>)
+          </p>
+          <p class="vspace"></p><h4>Returns</h4>
+          <p><a class="wikilink" href="http://arduino.cc/en/Reference/Constants">HIGH</a> or <a class="wikilink" href="http://arduino.cc/en/Reference/Constants">LOW</a>
+          </p>
+          <p class="vspace"></p><h4>Example</h4>
+          <p>Sets pin 13 to the same value as pin 7, declared as an input.
+
+          <div class="sourceblock " id="sourceblock1">
+            <div class="sourceblocktext"><div class="arduino"><span class="kw1">int</span> ledPin <span class="sy0">=</span> <span class="nu0">13</span><span class="sy0">;</span> <span class="co1">// LED connected to digital pin 13</span><br>
+          <span class="kw1">int</span> inPin <span class="sy0">=</span> <span class="nu0">7</span><span class="sy0">;</span> &nbsp; <span class="co1">// pushbutton connected to digital pin 7</span><br>
+          <span class="kw1">int</span> val <span class="sy0">=</span> <span class="nu0">0</span><span class="sy0">;</span> &nbsp; &nbsp; <span class="co1">// variable to store the read value</span><br>
+          <br>
+          <span class="kw1">void</span> <span class="kw3">setup</span><span class="br0">(</span><span class="br0">)</span><br>
+          <span class="br0">{</span><br>
+          &nbsp; <span class="kw1">pinMode</span><span class="br0">(</span>ledPin<span class="sy0">,</span> <span class="kw2">OUTPUT</span><span class="br0">)</span><span class="sy0">;</span> &nbsp; &nbsp; &nbsp;<span class="co1">// sets the digital pin 13 as output</span><br>
+          &nbsp; <span class="kw1">pinMode</span><span class="br0">(</span>inPin<span class="sy0">,</span> <span class="kw2">INPUT</span><span class="br0">)</span><span class="sy0">;</span> &nbsp; &nbsp; &nbsp;<span class="co1">// sets the digital pin 7 as input</span><br>
+          <span class="br0">}</span><br>
+          <br>
+          <span class="kw1">void</span> <span class="kw3">loop</span><span class="br0">(</span><span class="br0">)</span><br>
+          <span class="br0">{</span><br>
+          &nbsp; val <span class="sy0">=</span> <span class="kw1">digitalRead</span><span class="br0">(</span>inPin<span class="br0">)</span><span class="sy0">;</span> &nbsp; <span class="co1">// read the input pin</span><br>
+          &nbsp; <span class="kw1">digitalWrite</span><span class="br0">(</span>ledPin<span class="sy0">,</span> val<span class="br0">)</span><span class="sy0">;</span> &nbsp; &nbsp;<span class="co1">// sets the LED to the button's value</span><br>
+          <span class="br0">}</span></div></div>
+            <div class="sourceblocklink"><a href="http://arduino.cc/en/Reference/DigitalRead?action=sourceblock&amp;num=1" type="text/plain">[Get Code]</a></div>
+          </div>
+          <p></p>
+          <p class="vspace"></p><h4>Note</h4>
+          <p>If the pin isn't connected to anything, digitalRead() can return either HIGH or LOW  (and this can change randomly).  
+          </p>
+          <p class="vspace"></p><p>The analog input pins can be used as digital pins, referred to as A0, A1, etc.  
+          </p>
+          </div>
+      ]]>
+    </description>
+    <image>/Assets/Abacus.png</image>
+    <group>Digital I/O</group>
+  </item>
+  //Analog I/O - analogReference()
+  <item>
+  <title>analogReference()</title>
+  <subtitle></subtitle>
+  <description>
+    <![CDATA[
+          <div id="wikitext">
+          <h4>Description</h4>
+          <p>Configures the reference voltage used for analog input (i.e. the value used as the top of the input range).  The options are:
+          </p>
+          <p class="vspace"></p><ul><li>DEFAULT: the default analog reference of 5 volts (on 5V Arduino boards) or 3.3 volts (on 3.3V Arduino boards)
+          </li><li>INTERNAL: an built-in reference, equal to 1.1 volts on the <span class="wikiword">ATmega168</span> or <span class="wikiword">ATmega328</span> and 2.56 volts on the <span class="wikiword">ATmega8</span> (<em>not available on the Arduino Mega</em>)
+          </li><li><span class="wikiword">INTERNAL1V1</span>: a built-in 1.1V reference (<em>Arduino Mega only</em>)
+          </li><li><span class="wikiword">INTERNAL2V56</span>: a built-in 2.56V reference (<em>Arduino Mega only</em>)
+          </li><li>EXTERNAL: the voltage applied to the AREF pin (<strong>0 to 5V only</strong>) is used as the reference.
+          </li></ul><p class="vspace"></p><h4>Syntax</h4>
+          <p>analogReference(type)
+          </p>
+          <p class="vspace"></p><h4>Parameters</h4>
+          <p>type: which type of reference to use (DEFAULT, INTERNAL, <span class="wikiword">INTERNAL1V1</span>, <span class="wikiword">INTERNAL2V56</span>, or EXTERNAL).
+          </p>
+          <p class="vspace"></p><h4>Returns</h4>
+          <p>None.
+          </p>
+          <p class="vspace"></p><h4>Note</h4>
+          <p>After changing the analog reference, the first few readings from analogRead() may not be accurate.  
+          </p>
+          <p class="vspace"></p><h4>Warning</h4>
+          <p><strong>Don't use anything less than 0V or more than 5V for external reference voltage on the AREF pin!  If you're using an external reference on the AREF pin, you must set the analog reference to EXTERNAL before calling analogRead().</strong>  Otherwise, you will short together the active reference voltage (internally generated) and the AREF pin, possibly damaging the microcontroller on your Arduino board.  
+          </p>
+          <p class="vspace"></p><p>Alternatively, you can connect the external reference voltage to the AREF pin through a 5K resistor, allowing you to switch between external and internal reference voltages.  Note that the resistor will alter the voltage that gets used as the reference because there is an internal 32K resistor on the AREF pin. The two act as a voltage divider, so, for example, 2.5V applied through the resistor will yield 2.5 * 32 / (32 + 5) = ~2.2V at the AREF pin.  
+          </p>
+          </div>
+      ]]>
+  </description>
+  <image>/Assets/Abacus.png</image>
+  <group>Analog I/O</group>
+</item>
+  //Analog I/O - analogRead()
+  <item>
+    <title>analogRead()</title>
+    <subtitle></subtitle>
+    <description>
+      <![CDATA[
+          <div id="wikitext">
+          <h4>Description</h4>
+          <p>Reads the value from the specified analog pin. The Arduino board contains a 6 channel (8 channels on the Mini and Nano, 16 on the Mega), 10-bit analog to digital converter. This means that it will map input voltages between 0 and 5 volts into integer values between 0 and 1023. This yields a resolution between readings of: 5 volts / 1024 units or, .0049 volts (4.9 mV) per unit. The input range and resolution can be changed using <a class="wikilink" href="http://arduino.cc/en/Reference/AnalogReference">analogReference</a>().
+          </p>
+          <p class="vspace"></p><p>It takes about 100 microseconds (0.0001 s) to read an analog input, so the maximum reading rate is about 10,000 times a second.
+          </p>
+          <p class="vspace"></p><h4>Syntax</h4>
+          <p>analogRead(pin)
+          </p>
+          <p class="vspace"></p><h4>Parameters</h4>
+          <p>pin: the number of the analog input pin to read from (0 to 5 on most boards, 0 to 7 on the Mini and Nano, 0 to 15 on the Mega)
+          </p>
+          <p class="vspace"></p><h4>Returns</h4>
+          <p>int (0 to 1023)
+          </p>
+          <p class="vspace"></p><h4>Note</h4>
+          <p>If the analog input pin is not connected to anything, the value returned by analogRead() will fluctuate based on a number of factors (e.g. the values of the other analog inputs, how close your hand is to the board, etc.).
+          </p>
+          <p class="vspace"></p><h4>Example</h4>
+          <pre> 
+          <div class="sourceblock " id="sourceblock1">
+            <div class="sourceblocktext"><div class="arduino"><span class="kw1">int</span> analogPin <span class="sy0">=</span> <span class="nu0">3</span><span class="sy0">;</span> &nbsp; &nbsp; <span class="co1">// potentiometer wiper (middle terminal) connected to analog pin 3</span><br>
+          &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span class="co1">// outside leads to ground and +5V</span><br>
+          <span class="kw1">int</span> val <span class="sy0">=</span> <span class="nu0">0</span><span class="sy0">;</span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="co1">// variable to store the value read</span><br>
+          <br>
+          <span class="kw1">void</span> <span class="kw3">setup</span><span class="br0">(</span><span class="br0">)</span><br>
+          <span class="br0">{</span><br>
+          &nbsp; <span class="kw1">Serial</span>.<span class="kw1">begin</span><span class="br0">(</span><span class="nu0">9600</span><span class="br0">)</span><span class="sy0">;</span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span class="co1">// &nbsp;setup serial</span><br>
+          <span class="br0">}</span><br>
+          <br>
+          <span class="kw1">void</span> <span class="kw3">loop</span><span class="br0">(</span><span class="br0">)</span><br>
+          <span class="br0">{</span><br>
+          &nbsp; val <span class="sy0">=</span> <span class="kw1">analogRead</span><span class="br0">(</span>analogPin<span class="br0">)</span><span class="sy0">;</span> &nbsp; &nbsp;<span class="co1">// read the input pin</span><br>
+          &nbsp; <span class="kw1">Serial</span>.<span class="kw1">println</span><span class="br0">(</span>val<span class="br0">)</span><span class="sy0">;</span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="co1">// debug value</span><br>
+          <span class="br0">}</span></div></div>
+            <div class="sourceblocklink"><a href="http://arduino.cc/en/Reference/AnalogRead?action=sourceblock&amp;num=1" type="text/plain">[Get Code]</a></div>
+          </div>
+          </pre>
+          </div>
+      ]]>
+    </description>
+    <image>/Assets/Abacus.png</image>
+    <group>Analog I/O</group>
+  </item>
+  //analog I/O - analogWrite()
+  <item>
+    <title>analogWrite()</title>
+    <subtitle></subtitle>
+    <description>
+      <![CDATA[
+          <div id="wikitext">
+          <h4>Description</h4>
+          <p>Writes an analog value (<a class="wikilink" href="http://arduino.cc/en/Tutorial/PWM">PWM wave</a>) to a pin.  Can be used to light a LED at varying brightnesses or drive a motor at various speeds.  After a call to <strong>analogWrite()</strong>, the pin will generate a steady square wave of the specified duty cycle until the next call to <strong>analogWrite()</strong> (or a call to <strong>digitalRead()</strong> or <strong>digitalWrite()</strong> on the same pin).  The frequency of the PWM signal on most pins is approximately 490 Hz. On the Uno and similar boards, pins 5 and 6 have a frequency of approximately 980 Hz. Pins 3 and 11 on the Leonardo also run at 980 Hz.
+          </p>
+          <p class="vspace"></p><p>On most Arduino boards (those with the <span class="wikiword">ATmega168</span> or <span class="wikiword">ATmega328</span>), this function works on pins 3, 5, 6, 9, 10, and 11.  On the Arduino Mega, it works on pins 2 - 13 and 44 - 46.  Older Arduino boards with an <span class="wikiword">ATmega8</span> only support analogWrite() on pins 9, 10, and 11. 
+          </p>
+          <p class="vspace"></p><p>The Arduino Due supports analogWrite() on pins 2 through 13, plus pins <span class="wikiword">DAC0</span> and <span class="wikiword">DAC1</span>. Unlike the PWM pins, <span class="wikiword">DAC0</span> and <span class="wikiword">DAC1</span> are Digital to Analog converters, and act as true analog outputs.
+          </p>
+          <p class="vspace"></p><p>You do not need to call pinMode() to set the pin as an output before calling analogWrite().
+          </p>
+          <p class="vspace"></p><p>The <em>analogWrite</em> function has nothing to do with the analog pins or the <em>analogRead</em> function. 
+          </p>
+          <p class="vspace"></p><h4>Syntax</h4>
+          <p>analogWrite(pin, value)
+          </p>
+          <p class="vspace"></p><h4>Parameters</h4>
+          <p>pin: the pin to write to.  
+          </p>
+          <p class="vspace"></p><p>value: the duty cycle: between 0 (always off) and 255 (always on).
+          </p>
+          <p class="vspace"></p><h4>Returns</h4>
+          <p>nothing
+          </p>
+          <p class="vspace"></p><h4>Notes and Known Issues</h4>
+          <p>The PWM outputs generated on pins 5 and 6 will have higher-than-expected duty cycles.  This is because of interactions with the millis() and delay() functions, which share the same internal timer used to generate those PWM outputs. This will be noticed mostly on low duty-cycle settings (e.g 0 - 10) and may result in a value of 0 not fully turning off the output on pins 5 and 6.
+          </p>
+          <p class="vspace"></p><h4>Example</h4>
+          <p>Sets the output to the LED proportional to the value read from the potentiometer.
+          </p>
+          <p class="vspace"></p><pre> 
+          <div class="sourceblock " id="sourceblock1">
+            <div class="sourceblocktext"><div class="arduino"><span class="kw1">int</span> ledPin <span class="sy0">=</span> <span class="nu0">9</span><span class="sy0">;</span> &nbsp; &nbsp; &nbsp;<span class="co1">// LED connected to digital pin 9</span><br>
+          <span class="kw1">int</span> analogPin <span class="sy0">=</span> <span class="nu0">3</span><span class="sy0">;</span> &nbsp; <span class="co1">// potentiometer connected to analog pin 3</span><br>
+          <span class="kw1">int</span> val <span class="sy0">=</span> <span class="nu0">0</span><span class="sy0">;</span> &nbsp; &nbsp; &nbsp; &nbsp; <span class="co1">// variable to store the read value</span><br>
+          <br>
+          <span class="kw1">void</span> <span class="kw3">setup</span><span class="br0">(</span><span class="br0">)</span><br>
+          <span class="br0">{</span><br>
+          &nbsp; <span class="kw1">pinMode</span><span class="br0">(</span>ledPin<span class="sy0">,</span> <span class="kw2">OUTPUT</span><span class="br0">)</span><span class="sy0">;</span> &nbsp; <span class="co1">// sets the pin as output</span><br>
+          <span class="br0">}</span><br>
+          <br>
+          <span class="kw1">void</span> <span class="kw3">loop</span><span class="br0">(</span><span class="br0">)</span><br>
+          <span class="br0">{</span><br>
+          &nbsp; val <span class="sy0">=</span> <span class="kw1">analogRead</span><span class="br0">(</span>analogPin<span class="br0">)</span><span class="sy0">;</span> &nbsp; <span class="co1">// read the input pin</span><br>
+          &nbsp; <span class="kw1">analogWrite</span><span class="br0">(</span>ledPin<span class="sy0">,</span> val <span class="sy0">/</span> <span class="nu0">4</span><span class="br0">)</span><span class="sy0">;</span> &nbsp;<span class="co1">// analogRead values go from 0 to 1023, analogWrite values from 0 to 255</span><br>
+          <span class="br0">}</span></div></div>
+            <div class="sourceblocklink"><a href="http://arduino.cc/en/Reference/AnalogWrite?action=sourceblock&amp;num=1" type="text/plain">[Get Code]</a></div>
+          </div>
+
+          </pre>
+          </div>
+      ]]>
+    </description>
+    <image>/Assets/Abacus.png</image>
+    <group>Analog I/O</group>
+  </item>
+  //Due Only - analogReadResolution()
+  <item>
+    <title>analogReadResolution()</title>
+    <subtitle></subtitle>
+    <description>
+      <![CDATA[
+          <div id="wikitext">
+          <h4>Description</h4>
+          <p>analogReadResolution() is an extension of the Analog API for the Arduino Due.
+          </p>
+          <p class="vspace"></p><p>Sets the size (in bits) of the value returned by analogRead(). It defaults to 10 bits (returns values between 0-1023) for backward compatibility with AVR based boards.
+          </p>
+          <p class="vspace"></p><p>The <strong>Due has 12-bit ADC capabilities</strong> that can be accessed by changing the resolution to 12. This will return values from analogRead() between 0 and 4095. 
+          </p>
+          <p class="vspace"></p><h4>Syntax</h4>
+          <p>analogReadResolution(bits)
+          </p>
+          <p class="vspace"></p><h4>Parameters</h4>
+          <p>bits: determines the resolution (in bits) of the value returned by analogRead() function. You can set this  1 and 32. You can set resolutions higher than 12 but values returned by analogRead() will suffer approximation. See the note below for details.
+          </p>
+          <p class="vspace"></p><h4>Returns</h4>
+          <p>None.
+          </p>
+          <p class="vspace"></p><h4>Note</h4>
+          <p>If you set the analogReadResolution() value to a value higher than your board's capabilities, the Arduino will only report back at its highest resolution padding the extra bits with zeros. 
+          </p>
+          <p class="vspace"></p><p>For example: using the Due with analogReadResolution(16) will give you an approximated 16-bit number with the first 12 bits containing the <strong>real</strong> ADC reading and the last 4 bits <strong>padded with zeros</strong>.
+          </p>
+          <p class="vspace"></p><p>If you set the analogReadResolution() value to a value lower than your board's capabilities, the extra least significant bits read from the ADC will be <strong>discarded</strong>.
+          </p>
+          <p class="vspace"></p><p>Using a 16 bit resolution (or any resolution <strong>higher</strong> than actual hardware capabilities) allows you to write sketches that automatically handle devices with a higher resolution ADC when these become available on future boards without changing a line of code.
+          </p>
+          <p class="vspace"></p><h4>Example</h4>
+          <p>
+          <div class="sourceblock " id="sourceblock1">
+            <div class="sourceblocktext"><div class="arduino"><span class="kw1">void</span> <span class="kw3">setup</span><span class="br0">(</span><span class="br0">)</span> <span class="br0">{</span><br>
+          &nbsp; <span class="co1">// open a serial connection</span><br>
+          &nbsp; <span class="kw1">Serial</span>.<span class="kw1">begin</span><span class="br0">(</span><span class="nu0">9600</span><span class="br0">)</span><span class="sy0">;</span> <br>
+          <span class="br0">}</span><br>
+          <br>
+          <span class="kw1">void</span> <span class="kw3">loop</span><span class="br0">(</span><span class="br0">)</span> <span class="br0">{</span><br>
+          &nbsp; <span class="co1">// read the input on A0 at default resolution (10 bits)</span><br>
+          &nbsp; <span class="co1">// and send it out the serial connection </span><br>
+          &nbsp; analogReadResolution<span class="br0">(</span><span class="nu0">10</span><span class="br0">)</span><span class="sy0">;</span><br>
+          &nbsp; <span class="kw1">Serial</span>.<span class="kw1">print</span><span class="br0">(</span><span class="st0">"ADC 10-bit (default) : "</span><span class="br0">)</span><span class="sy0">;</span><br>
+          &nbsp; <span class="kw1">Serial</span>.<span class="kw1">print</span><span class="br0">(</span><span class="kw1">analogRead</span><span class="br0">(</span>A0<span class="br0">)</span><span class="br0">)</span><span class="sy0">;</span><br>
+          <br>
+          &nbsp; <span class="co1">// change the resolution to 12 bits and read A0</span><br>
+          &nbsp; analogReadResolution<span class="br0">(</span><span class="nu0">12</span><span class="br0">)</span><span class="sy0">;</span><br>
+          &nbsp; <span class="kw1">Serial</span>.<span class="kw1">print</span><span class="br0">(</span><span class="st0">", 12-bit : "</span><span class="br0">)</span><span class="sy0">;</span><br>
+          &nbsp; <span class="kw1">Serial</span>.<span class="kw1">print</span><span class="br0">(</span><span class="kw1">analogRead</span><span class="br0">(</span>A0<span class="br0">)</span><span class="br0">)</span><span class="sy0">;</span><br>
+          <br>
+          &nbsp; <span class="co1">// change the resolution to 16 bits and read A0</span><br>
+          &nbsp; analogReadResolution<span class="br0">(</span><span class="nu0">16</span><span class="br0">)</span><span class="sy0">;</span><br>
+          &nbsp; <span class="kw1">Serial</span>.<span class="kw1">print</span><span class="br0">(</span><span class="st0">", 16-bit : "</span><span class="br0">)</span><span class="sy0">;</span><br>
+          &nbsp; <span class="kw1">Serial</span>.<span class="kw1">print</span><span class="br0">(</span><span class="kw1">analogRead</span><span class="br0">(</span>A0<span class="br0">)</span><span class="br0">)</span><span class="sy0">;</span><br>
+          <br>
+          &nbsp; <span class="co1">// change the resolution to 8 bits and read A0</span><br>
+          &nbsp; analogReadResolution<span class="br0">(</span><span class="nu0">8</span><span class="br0">)</span><span class="sy0">;</span><br>
+          &nbsp; <span class="kw1">Serial</span>.<span class="kw1">print</span><span class="br0">(</span><span class="st0">", 8-bit : "</span><span class="br0">)</span><span class="sy0">;</span><br>
+          &nbsp; <span class="kw1">Serial</span>.<span class="kw1">println</span><span class="br0">(</span><span class="kw1">analogRead</span><span class="br0">(</span>A0<span class="br0">)</span><span class="br0">)</span><span class="sy0">;</span><br>
+          <br>
+          &nbsp; <span class="co1">// a little delay to not hog serial monitor</span><br>
+          &nbsp; <span class="kw1">delay</span><span class="br0">(</span><span class="nu0">100</span><span class="br0">)</span><span class="sy0">;</span><br>
+          <span class="br0">}</span></div></div>
+            <div class="sourceblocklink"><a href="http://arduino.cc/en/Reference/AnalogReadResolution?action=sourceblock&amp;num=1" type="text/plain">[Get Code]</a></div>
+          </div>
+          </div>
+      ]]>
+    </description>
+    <image>/Assets/Abacus.png</image>
+    <group>Due Only</group>
+  </item>
+  //Due Only - analogWriteResolution()
+  <item>
+  <title>analogWriteResolution()</title>
+  <subtitle></subtitle>
+  <description>
+    <![CDATA[
+          <div id="wikitext">
+          <h4>Description</h4>
+          <p>analogReadResolution() is an extension of the Analog API for the Arduino Due.
+          </p>
+          <p class="vspace"></p><p>Sets the size (in bits) of the value returned by analogRead(). It defaults to 10 bits (returns values between 0-1023) for backward compatibility with AVR based boards.
+          </p>
+          <p class="vspace"></p><p>The <strong>Due has 12-bit ADC capabilities</strong> that can be accessed by changing the resolution to 12. This will return values from analogRead() between 0 and 4095. 
+          </p>
+          <p class="vspace"></p><h4>Syntax</h4>
+          <p>analogReadResolution(bits)
+          </p>
+          <p class="vspace"></p><h4>Parameters</h4>
+          <p>bits: determines the resolution (in bits) of the value returned by analogRead() function. You can set this  1 and 32. You can set resolutions higher than 12 but values returned by analogRead() will suffer approximation. See the note below for details.
+          </p>
+          <p class="vspace"></p><h4>Returns</h4>
+          <p>None.
+          </p>
+          <p class="vspace"></p><h4>Note</h4>
+          <p>If you set the analogReadResolution() value to a value higher than your board's capabilities, the Arduino will only report back at its highest resolution padding the extra bits with zeros. 
+          </p>
+          <p class="vspace"></p><p>For example: using the Due with analogReadResolution(16) will give you an approximated 16-bit number with the first 12 bits containing the <strong>real</strong> ADC reading and the last 4 bits <strong>padded with zeros</strong>.
+          </p>
+          <p class="vspace"></p><p>If you set the analogReadResolution() value to a value lower than your board's capabilities, the extra least significant bits read from the ADC will be <strong>discarded</strong>.
+          </p>
+          <p class="vspace"></p><p>Using a 16 bit resolution (or any resolution <strong>higher</strong> than actual hardware capabilities) allows you to write sketches that automatically handle devices with a higher resolution ADC when these become available on future boards without changing a line of code.
+          </p>
+          <p class="vspace"></p><h4>Example</h4>
+          <p>
+          <div class="sourceblock " id="sourceblock1">
+            <div class="sourceblocktext"><div class="arduino"><span class="kw1">void</span> <span class="kw3">setup</span><span class="br0">(</span><span class="br0">)</span> <span class="br0">{</span><br>
+          &nbsp; <span class="co1">// open a serial connection</span><br>
+          &nbsp; <span class="kw1">Serial</span>.<span class="kw1">begin</span><span class="br0">(</span><span class="nu0">9600</span><span class="br0">)</span><span class="sy0">;</span> <br>
+          <span class="br0">}</span><br>
+          <br>
+          <span class="kw1">void</span> <span class="kw3">loop</span><span class="br0">(</span><span class="br0">)</span> <span class="br0">{</span><br>
+          &nbsp; <span class="co1">// read the input on A0 at default resolution (10 bits)</span><br>
+          &nbsp; <span class="co1">// and send it out the serial connection </span><br>
+          &nbsp; analogReadResolution<span class="br0">(</span><span class="nu0">10</span><span class="br0">)</span><span class="sy0">;</span><br>
+          &nbsp; <span class="kw1">Serial</span>.<span class="kw1">print</span><span class="br0">(</span><span class="st0">"ADC 10-bit (default) : "</span><span class="br0">)</span><span class="sy0">;</span><br>
+          &nbsp; <span class="kw1">Serial</span>.<span class="kw1">print</span><span class="br0">(</span><span class="kw1">analogRead</span><span class="br0">(</span>A0<span class="br0">)</span><span class="br0">)</span><span class="sy0">;</span><br>
+          <br>
+          &nbsp; <span class="co1">// change the resolution to 12 bits and read A0</span><br>
+          &nbsp; analogReadResolution<span class="br0">(</span><span class="nu0">12</span><span class="br0">)</span><span class="sy0">;</span><br>
+          &nbsp; <span class="kw1">Serial</span>.<span class="kw1">print</span><span class="br0">(</span><span class="st0">", 12-bit : "</span><span class="br0">)</span><span class="sy0">;</span><br>
+          &nbsp; <span class="kw1">Serial</span>.<span class="kw1">print</span><span class="br0">(</span><span class="kw1">analogRead</span><span class="br0">(</span>A0<span class="br0">)</span><span class="br0">)</span><span class="sy0">;</span><br>
+          <br>
+          &nbsp; <span class="co1">// change the resolution to 16 bits and read A0</span><br>
+          &nbsp; analogReadResolution<span class="br0">(</span><span class="nu0">16</span><span class="br0">)</span><span class="sy0">;</span><br>
+          &nbsp; <span class="kw1">Serial</span>.<span class="kw1">print</span><span class="br0">(</span><span class="st0">", 16-bit : "</span><span class="br0">)</span><span class="sy0">;</span><br>
+          &nbsp; <span class="kw1">Serial</span>.<span class="kw1">print</span><span class="br0">(</span><span class="kw1">analogRead</span><span class="br0">(</span>A0<span class="br0">)</span><span class="br0">)</span><span class="sy0">;</span><br>
+          <br>
+          &nbsp; <span class="co1">// change the resolution to 8 bits and read A0</span><br>
+          &nbsp; analogReadResolution<span class="br0">(</span><span class="nu0">8</span><span class="br0">)</span><span class="sy0">;</span><br>
+          &nbsp; <span class="kw1">Serial</span>.<span class="kw1">print</span><span class="br0">(</span><span class="st0">", 8-bit : "</span><span class="br0">)</span><span class="sy0">;</span><br>
+          &nbsp; <span class="kw1">Serial</span>.<span class="kw1">println</span><span class="br0">(</span><span class="kw1">analogRead</span><span class="br0">(</span>A0<span class="br0">)</span><span class="br0">)</span><span class="sy0">;</span><br>
+          <br>
+          &nbsp; <span class="co1">// a little delay to not hog serial monitor</span><br>
+          &nbsp; <span class="kw1">delay</span><span class="br0">(</span><span class="nu0">100</span><span class="br0">)</span><span class="sy0">;</span><br>
+          <span class="br0">}</span></div></div>
+            <div class="sourceblocklink"><a href="http://arduino.cc/en/Reference/AnalogReadResolution?action=sourceblock&amp;num=1" type="text/plain">[Get Code]</a></div>
+          </div>
+          </div>
+      ]]>
+  </description>
+  <image>/Assets/Abacus.png</image>
+  <group>Due Only</group>
+</item>
+   //Advanced I/O - tone()
+  <item>
+  <title>tone()</title>
+  <subtitle></subtitle>
+  <description>
+    <![CDATA[
+          <div id="wikitext">
+          <h4>Description</h4>
+          <p>Generates a square wave of the specified frequency (and 50% duty cycle) on a pin.  A duration can be specified, otherwise the wave continues until a call to <a class="wikilink" href="http://arduino.cc/en/Reference/NoTone">noTone</a>().  The pin can be connected to a piezo buzzer or other speaker to play tones.  
+          </p>
+          <p class="vspace"></p><p>Only one tone can be generated at a time.  If a tone is already playing on a different pin, the call to tone() will have no effect.  If the tone is playing on the same pin, the call will set its frequency.  
+          </p>
+          <p class="vspace"></p><p>Use of the tone() function will interfere with PWM output on pins 3 and 11 (on boards other than the Mega).
+          </p>
+          <p class="vspace"></p><p>It is not possible to generate tones lower than 31Hz. For technical details, see <a class="urllink" href="https://code.google.com/p/rogue-code/wiki/ToneLibraryDocumentation#Ugly_Details" target="_blank" rel="nofollow">Brett Hagman's notes</a>.
+          </p>
+          <p class="vspace"></p><p><strong>NOTE:</strong> if you want to play different pitches on multiple pins, you need to call noTone() on one pin before calling tone() on the next pin.
+          </p>
+          <p class="vspace"></p><h4>Syntax</h4>
+          <p>tone(pin, frequency) <br>tone(pin, frequency, duration)
+          </p>
+          <p class="vspace"></p><h4>Parameters</h4>
+          <p>pin: the pin on which to generate the tone
+          </p>
+          <p class="vspace"></p><p>frequency: the frequency of the tone in hertz - <em>unsigned int</em>
+          </p>
+          <p class="vspace"></p><p>duration: the duration of the tone in milliseconds (optional) - <em>unsigned long</em>
+          </p>
+          <p class="vspace"></p><h4>Returns</h4>
+          <p>nothing
+          </p>
+          </div>
+      ]]>
+  </description>
+  <image>/Assets/Abacus.png</image>
+  <group>Advanced I/O</group>
+</item>
+  //Advanced I/O - noTone()
+  <item>
+    <title>notone()</title>
+    <subtitle></subtitle>
+    <description>
+      <![CDATA[
+          <div id="wikitext">
+          <h4>Description</h4>
+          <p>Stops the generation of a square wave triggered by <a class="wikilink" href="http://arduino.cc/en/Reference/Tone">tone</a>().  Has no effect if no tone is being generated.
+          </p>
+          <p class="vspace"></p><p><strong>NOTE:</strong> if you want to play different pitches on multiple pins, you need to call noTone() on one pin before calling tone() on the next pin.
+          </p>
+          <p class="vspace"></p><h4>Syntax</h4>
+          <p>noTone(pin)
+          </p>
+          <p class="vspace"></p><h4>Parameters</h4>
+          <p>pin: the pin on which to stop generating the tone
+          </p>
+          <p class="vspace"></p><h4>Returns</h4>
+          <p>nothing
+          </p>
+          </div>
+      ]]>
+    </description>
+    <image>/Assets/Abacus.png</image>
+    <group>Advanced I/O</group>
+  </item>
+  //Advanced I/O - shiftOut()
+  <item>
+    <title>shiftOut()</title>
+    <subtitle></subtitle>
+    <description>
+      <![CDATA[
+          <div id="wikitext">
+          <h4>Description</h4>
+          <p>Shifts out a byte of data one bit at a time.  Starts from either the most (i.e. the leftmost) or least (rightmost) significant bit.  Each bit is written in turn to a data pin, after which a clock pin is pulsed (taken high, then low) to indicate that the bit is available.
+          </p>
+          <p class="vspace"></p><p>Note: if you're interfacing with a device that's clocked by rising edges, you'll need to make sure that the clock pin is low before the call to shiftOut(), e.g. with a call to digitalWrite(clockPin, LOW).
+          </p>
+          <p class="vspace"></p><p>This is a software implementation; see also the <a class="wikilink" href="http://arduino.cc/en/Reference/SPI">SPI library</a>, which provides a hardware implementation that is faster but works only on specific pins.  
+          </p>
+          <p class="vspace"></p><h4>Syntax</h4>
+          <p>shiftOut(dataPin, clockPin, bitOrder, value)
+          </p>
+          <p class="vspace"></p><h4>Parameters</h4>
+          <p>dataPin: the pin on which to output each bit (<em>int</em>)
+          </p>
+          <p class="vspace"></p><p>clockPin: the pin to toggle once the <strong>dataPin</strong> has been set to the correct value (<em>int</em>)
+          </p>
+          <p class="vspace"></p><p>bitOrder: which order to shift out the bits; either <strong>MSBFIRST</strong> or <strong>LSBFIRST</strong>.<br>(Most Significant Bit First, or, Least Significant Bit First) 
+          </p>
+          <p class="vspace"></p><p>value: the data to shift out. (<em>byte</em>)
+          </p>
+          <p class="vspace"></p><h4>Returns</h4>
+          <p>None
+          </p>
+          <p class="vspace"></p><h4>Note</h4>
+          <p>The <strong>dataPin</strong> and <strong>clockPin</strong> must already be configured as outputs by a call to <a class="wikilink" href="http://arduino.cc/en/Reference/PinMode">pinMode</a>().
+          </p>
+          <p class="vspace"></p><p><strong>shiftOut</strong> is currently written to output 1 byte (8 bits) so it requires a two step operation to output values larger than 255.
+
+          <div class="sourceblock " id="sourceblock1">
+            <div class="sourceblocktext"><div class="arduino"><br>
+          <span class="co1">// Do this for MSBFIRST serial</span><br>
+          <span class="kw1">int</span> data <span class="sy0">=</span> <span class="nu0">500</span><span class="sy0">;</span><br>
+          <span class="co1">// shift out highbyte</span><br>
+          <span class="kw1">shiftOut</span><span class="br0">(</span>dataPin<span class="sy0">,</span> clock<span class="sy0">,</span> <span class="kw2">MSBFIRST</span><span class="sy0">,</span> <span class="br0">(</span>data <span class="sy0">&gt;&gt;</span> <span class="nu0">8</span><span class="br0">)</span><span class="br0">)</span><span class="sy0">;</span> &nbsp;<br>
+          <span class="co1">// shift out lowbyte</span><br>
+          <span class="kw1">shiftOut</span><span class="br0">(</span>dataPin<span class="sy0">,</span> clock<span class="sy0">,</span> <span class="kw2">MSBFIRST</span><span class="sy0">,</span> data<span class="br0">)</span><span class="sy0">;</span><br>
+          <br>
+          <span class="co1">// Or do this for LSBFIRST serial</span><br>
+          data <span class="sy0">=</span> <span class="nu0">500</span><span class="sy0">;</span><br>
+          <span class="co1">// shift out lowbyte</span><br>
+          <span class="kw1">shiftOut</span><span class="br0">(</span>dataPin<span class="sy0">,</span> clock<span class="sy0">,</span> <span class="kw2">LSBFIRST</span><span class="sy0">,</span> data<span class="br0">)</span><span class="sy0">;</span> &nbsp;<br>
+          <span class="co1">// shift out highbyte </span><br>
+          <span class="kw1">shiftOut</span><span class="br0">(</span>dataPin<span class="sy0">,</span> clock<span class="sy0">,</span> <span class="kw2">LSBFIRST</span><span class="sy0">,</span> <span class="br0">(</span>data <span class="sy0">&gt;&gt;</span> <span class="nu0">8</span><span class="br0">)</span><span class="br0">)</span><span class="sy0">;</span> <br>
+          &nbsp;</div></div>
+            <div class="sourceblocklink"><a href="http://arduino.cc/en/Reference/ShiftOut?action=sourceblock&amp;num=1" type="text/plain">[Get Code]</a></div>
+          </div>
+
+          <p></p>
+          <p class="vspace"></p><h4>Example</h4>
+          <p><em>For accompanying circuit, see the <a class="wikilink" href="http://arduino.cc/en/Tutorial/ShiftOut">tutorial on controlling a 74HC595 shift register</a>.</em>
+          </p>
+          <p class="vspace"></p><p>
+          <div class="sourceblock " id="sourceblock2">
+            <div class="sourceblocktext"><div class="arduino"><span class="co1">//**************************************************************//</span><br>
+          <span class="co1">// &nbsp;Name &nbsp; &nbsp;: shiftOutCode, Hello World &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; //</span><br>
+          <span class="co1">// &nbsp;Author &nbsp;: Carlyn Maw,Tom Igoe &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; //</span><br>
+          <span class="co1">// &nbsp;Date &nbsp; &nbsp;: 25 Oct, 2006 &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;//</span><br>
+          <span class="co1">// &nbsp;Version : 1.0 &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; //</span><br>
+          <span class="co1">// &nbsp;Notes &nbsp; : Code for using a 74HC595 Shift Register &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; //</span><br>
+          <span class="co1">// &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;: to count from 0 to 255 &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;//</span><br>
+          <span class="co1">//****************************************************************</span><br>
+          <br>
+          <span class="co1">//Pin connected to ST_CP of 74HC595</span><br>
+          <span class="kw1">int</span> latchPin <span class="sy0">=</span> <span class="nu0">8</span><span class="sy0">;</span><br>
+          <span class="co1">//Pin connected to SH_CP of 74HC595</span><br>
+          <span class="kw1">int</span> clockPin <span class="sy0">=</span> <span class="nu0">12</span><span class="sy0">;</span><br>
+          <span class="co1">////Pin connected to DS of 74HC595</span><br>
+          <span class="kw1">int</span> dataPin <span class="sy0">=</span> <span class="nu0">11</span><span class="sy0">;</span><br>
+          <br>
+          <span class="kw1">void</span> <span class="kw3">setup</span><span class="br0">(</span><span class="br0">)</span> <span class="br0">{</span><br>
+          &nbsp; <span class="co1">//set pins to output because they are addressed in the main loop</span><br>
+          &nbsp; <span class="kw1">pinMode</span><span class="br0">(</span>latchPin<span class="sy0">,</span> <span class="kw2">OUTPUT</span><span class="br0">)</span><span class="sy0">;</span><br>
+          &nbsp; <span class="kw1">pinMode</span><span class="br0">(</span>clockPin<span class="sy0">,</span> <span class="kw2">OUTPUT</span><span class="br0">)</span><span class="sy0">;</span><br>
+          &nbsp; <span class="kw1">pinMode</span><span class="br0">(</span>dataPin<span class="sy0">,</span> <span class="kw2">OUTPUT</span><span class="br0">)</span><span class="sy0">;</span><br>
+          <span class="br0">}</span><br>
+          <br>
+          <span class="kw1">void</span> <span class="kw3">loop</span><span class="br0">(</span><span class="br0">)</span> <span class="br0">{</span><br>
+          &nbsp; <span class="co1">//count up routine</span><br>
+          &nbsp; <span class="kw1">for</span> <span class="br0">(</span><span class="kw1">int</span> j <span class="sy0">=</span> <span class="nu0">0</span><span class="sy0">;</span> j <span class="sy0">&lt;</span> <span class="nu0">256</span><span class="sy0">;</span> j<span class="sy0">++</span><span class="br0">)</span> <span class="br0">{</span><br>
+          &nbsp; &nbsp; <span class="co1">//ground latchPin and hold low for as long as you are transmitting</span><br>
+          &nbsp; &nbsp; <span class="kw1">digitalWrite</span><span class="br0">(</span>latchPin<span class="sy0">,</span> <span class="kw2">LOW</span><span class="br0">)</span><span class="sy0">;</span><br>
+          &nbsp; &nbsp; <span class="kw1">shiftOut</span><span class="br0">(</span>dataPin<span class="sy0">,</span> clockPin<span class="sy0">,</span> <span class="kw2">LSBFIRST</span><span class="sy0">,</span> j<span class="br0">)</span><span class="sy0">;</span> &nbsp; <br>
+          &nbsp; &nbsp; <span class="co1">//return the latch pin high to signal chip that it </span><br>
+          &nbsp; &nbsp; <span class="co1">//no longer needs to listen for information</span><br>
+          &nbsp; &nbsp; <span class="kw1">digitalWrite</span><span class="br0">(</span>latchPin<span class="sy0">,</span> <span class="kw2">HIGH</span><span class="br0">)</span><span class="sy0">;</span><br>
+          &nbsp; &nbsp; <span class="kw1">delay</span><span class="br0">(</span><span class="nu0">1000</span><span class="br0">)</span><span class="sy0">;</span><br>
+          &nbsp; <span class="br0">}</span><br>
+          <span class="br0">}</span> <br>
+          &nbsp;</div></div>
+          </div>
+      ]]>
+    </description>
+    <image>/Assets/Abacus.png</image>
+    <group>Advanced I/O</group>
+  </item>
+  //Advanced I/O - shiftIn()
+  <item>
+    <title>shiftIn()</title>
+    <subtitle></subtitle>
+    <description>
+      <![CDATA[
+        <div id="wikitext">
+        <h4>Description</h4>
+        <p>Shifts in a byte of data one bit at a time.  Starts from either the most (i.e. the leftmost) or least (rightmost) significant bit.  For each bit, the clock pin is pulled high, the next bit is read from the data line, and then the clock pin is taken low.
+        </p>
+        <p class="vspace"></p><p>If you're interfacing with a device that's clocked by rising edges, you'll need to make sure that the clock pin is low before the first call to shiftIn(), e.g. with a call to digitalWrite(clockPin, LOW).
+        </p>
+        <p class="vspace"></p><p>Note: this is a software implementation; Arduino also provides an <a class="wikilink" href="http://arduino.cc/en/Reference/SPI">SPI library</a> that uses the hardware implementation, which is faster but only works on specific pins.
+        </p>
+        <p class="vspace"></p><h4>Syntax</h4>
+        <pre>byte incoming = shiftIn(dataPin, clockPin, bitOrder)
+
+        </pre>
+        <p class="vspace"></p><h4>Parameters</h4>
+        <p>dataPin: the pin on which to input each bit (<em>int</em>)
+        </p>
+        <p class="vspace"></p><p>clockPin: the pin to toggle to signal a read from  <strong>dataPin</strong> 
+        </p>
+        <p class="vspace"></p><p>bitOrder: which order to shift in the bits; either <strong>MSBFIRST</strong> or <strong>LSBFIRST</strong>.<br>(Most Significant Bit First, or, Least Significant Bit First) 
+        </p>
+        <p class="vspace"></p><h4>Returns</h4>
+        <p>the value read (<em>byte</em>)
+        </p>
+        </div>
+      ]]>
+    </description>
+    <image>/Assets/Abacus.png</image>
+    <group>Advanced I/O</group>
+  </item>
+  //Advanced I/O - pulseIn()
+  <item>
+    <title>pulseIn()</title>
+    <subtitle></subtitle>
+    <description>
+      <![CDATA[
+        <div id="wikitext">
+        <h4>Description</h4>
+        <p>Reads a pulse (either HIGH or LOW) on a pin.  For example, if <strong>value</strong> is <strong>HIGH</strong>, <strong>pulseIn()</strong> waits for the pin to go <strong>HIGH</strong>, starts timing, then waits for the pin to go <strong>LOW</strong> and stops timing.  Returns the length of the pulse in microseconds. Gives up and returns 0 if no pulse starts within a specified time out.
+        </p>
+        <p class="vspace"></p><p>The timing of this function has been determined empirically and will probably show errors in longer pulses. Works on pulses from 10 microseconds to 3 minutes in length. 
+        </p>
+        <p class="vspace"></p><h4>Syntax</h4>
+        <p>pulseIn(pin, value) <br>pulseIn(pin, value, timeout)
+        </p>
+        <p class="vspace"></p><h4>Parameters</h4>
+        <p>pin: the number of the pin on which you want to read the pulse.  (<em>int</em>)
+        </p>
+        <p class="vspace"></p><p>value: type of pulse to read: either <a class="wikilink" href="http://arduino.cc/en/Reference/Constants">HIGH</a> or <a class="wikilink" href="http://arduino.cc/en/Reference/Constants">LOW</a>. (<em>int</em>)
+        </p>
+        <p class="vspace"></p><p>timeout (optional): the number of microseconds to wait for the pulse to start; default is one second (<em>unsigned long</em>)
+        </p>
+        <p class="vspace"></p><h4>Returns</h4>
+        <p>the length of the pulse (in microseconds) or 0 if no pulse started before the timeout (<em>unsigned long</em>)
+        </p>
+        <p class="vspace"></p><h4>Example</h4>
+        <pre> 
+
+        int pin = 7;
+        unsigned long duration;
+
+        void setup()
+        {
+          pinMode(pin, INPUT);
+        }
+
+        void loop()
+        {
+          duration = pulseIn(pin, HIGH);
+        }
+
+        </pre>
+        </div>
+      ]]>
+    </description>
+    <image>/Assets/Abacus.png</image>
+    <group>Advanced I/O</group>
+  </item>
+
+  //Bits and Bytes - lowByte()
+  <item>
+    <title>lowByte()</title>
+    <subtitle></subtitle>
+    <description>
+      <![CDATA[
+          <div id="wikitext">
+          <h4>Description</h4>
+          <p>Extracts the low-order (rightmost) byte of a variable (e.g. a word).
+          </p>
+          <p class="vspace"></p><h4>Syntax</h4>
+          <p>lowByte(x)
+          </p>
+          <p class="vspace"></p><h4>Parameters</h4>
+          <p>x: a value of any type
+          </p>
+          <p class="vspace"></p><h4>Returns</h4>
+          <p>byte
+          </p>
+          </div>
+      ]]>
+    </description>
+    <image>/Assets/Abacus.png</image>
+    <group>Bits and Bytes</group>
+  </item>
+  //Bits and Bytes - highByte()
+  <item>
+  <title>highByte()</title>
+  <subtitle></subtitle>
+  <description>
+    <![CDATA[
+        <div id="wikitext">
+        <h4>Description</h4>
+        <p>Extracts the high-order (leftmost) byte of a word (or the second lowest byte of a larger data type).
+        </p>
+        <p class="vspace"></p><h4>Syntax</h4>
+        <p>highByte(x)
+        </p>
+        <p class="vspace"></p><h4>Parameters</h4>
+        <p>x: a value of any type
+        </p>
+        <p class="vspace"></p><h4>Returns</h4>
+        <p>byte
+        </p>
+        </div>
+      ]]>
+  </description>
+  <image>/Assets/Abacus.png</image>
+  <group>Bits and Bytes</group>
+</item>
+  //Bits and Bytes - bitRead()
+  <item>
+  <title>bitRead()</title>
+  <subtitle></subtitle>
+  <description>
+    <![CDATA[
+        <div id="wikitext">
+        <h4>Description</h4>
+        <p>Reads a bit of a number.
+        </p>
+        <p class="vspace"></p><h4>Syntax</h4>
+        <p>bitRead(x, n)
+        </p>
+        <p class="vspace"></p><h4>Parameters</h4>
+        <p>x: the number from which to read
+        </p>
+        <p class="vspace"></p><p>n: which bit to read, starting at 0 for the least-significant (rightmost) bit
+        </p>
+        <p class="vspace"></p><h4>Returns</h4>
+        <p>the value of the bit (0 or 1).
+        </p>
+        </div>
+      ]]>
+  </description>
+  <image>/Assets/Abacus.png</image>
+  <group>Bits and Bytes</group>
+</item>
+  //Bits and Bytes - bitWrite()
+  <item>
+  <title>bitWrite()</title>
+  <subtitle></subtitle>
+  <description>
+    <![CDATA[
+        <div id="wikitext">
+        <h4>Description</h4>
+        <p>Writes a bit of a numeric variable.
+        </p>
+        <p class="vspace"></p><h4>Syntax</h4>
+        <p>bitWrite(x, n, b)
+        </p>
+        <p class="vspace"></p><h4>Parameters</h4>
+        <p>x: the numeric variable to which to write
+        </p>
+        <p class="vspace"></p><p>n: which bit of the number to write, starting at 0 for the least-significant (rightmost) bit
+        </p>
+        <p class="vspace"></p><p>b: the value to write to the bit (0 or 1)
+        </p>
+        <p class="vspace"></p><h4>Returns</h4>
+        <p>none
+        </p>
+        </div>
+      ]]>
+  </description>
+  <image>/Assets/Abacus.png</image>
+  <group>Bits and Bytes</group>
+</item>
+  //Bits and Bytes - bitSet()
+  <item>
+  <title>bitSet()</title>
+  <subtitle></subtitle>
+  <description>
+    <![CDATA[
+          <div id="wikitext">
+          <p class="vspace"></p><h2>bitSet()</h2>
+          <h4>Description</h4>
+          <p>Sets (writes a 1 to) a bit of a numeric variable.
+          </p>
+          <p class="vspace"></p><h4>Syntax</h4>
+          <p>bitSet(x, n)
+          </p>
+          <p class="vspace"></p><h4>Parameters</h4>
+          <p>x: the numeric variable whose bit to set
+          </p>
+          <p class="vspace"></p><p>n: which bit to set, starting at 0 for the least-significant (rightmost) bit
+          </p>
+          <p class="vspace"></p><h4>Returns</h4>
+          <p>none
+          </p>
+          </div>
+      ]]>
+  </description>
+  <image>/Assets/Abacus.png</image>
+  <group>Bits and Bytes</group>
+</item>
+  //Bits and Bytes - bitClear()
+  <item>
+  <title>bitClear()</title>
+  <subtitle></subtitle>
+  <description>
+    <![CDATA[
+        <div id="wikitext">
+        <h4>Description</h4>
+        <p>Clears (writes a 0 to) a bit of a numeric variable.
+        </p>
+        <p class="vspace"></p><h4>Syntax</h4>
+        <p>bitClear(x, n)
+        </p>
+        <p class="vspace"></p><h4>Parameters</h4>
+        <p>x: the numeric variable whose bit to clear
+        </p>
+        <p class="vspace"></p><p>n: which bit to clear, starting at 0 for the least-significant (rightmost) bit
+        </p>
+        <p class="vspace"></p><h4>Returns</h4>
+        <p>none
+        </p>
+        </div>
+      ]]>
+  </description>
+  <image>/Assets/Abacus.png</image>
+  <group>Bits and Bytes</group>
+</item>
+  //Bits and Bytes - bit()
+  <item>
+  <title>bit()</title>
+  <subtitle></subtitle>
+  <description>
+    <![CDATA[
+        <div id="wikitext">
+        <h4>Description</h4>
+        <p>Computes the value of the specified bit (bit 0 is 1, bit 1 is 2, bit 2 is 4, etc.). 
+        </p>
+        <p class="vspace"></p><h4>Syntax</h4>
+        <p>bit(n)
+        </p>
+        <p class="vspace"></p><h4>Parameters</h4>
+        <p>n: the bit whose value to compute
+        </p>
+        <p class="vspace"></p><h4>Returns</h4>
+        <p>the value of the bit
+        </p>
+        </div>
+      ]]>
+  </description>
+  <image>/Assets/Abacus.png</image>
+  <group>Bits and Bytes</group>
+</item>
+  
+  //External Interrupts - attachInterrupt()
+  <item>
+  <title>attachInterrupt()</title>
+  <subtitle></subtitle>
+  <description>
+    <![CDATA[
+          <div id="wikitext">
+          <p class="vspace"></p><h4>Description</h4>
+          <p>Specifies a named Interrupt Service Routine (ISR) to call when an interrupt occurs.  Replaces any previous function that was attached to the interrupt.  Most Arduino boards have two external interrupts: numbers 0 (on digital pin 2) and 1 (on digital pin 3). The table below shows the available interrupt pins on various boards.
+          </p>
+          <p class="vspace"></p>
+          <table width="90%" style="border-collapse: collapse;" border="0" cellpadding="5"><tbody><tr><td align="left"><strong>Board</strong></td><td align="center"><strong>int.0</strong></td><td align="center"><strong>int.1</strong></td><td align="center"><strong>int.2</strong></td><td align="center"><strong>int.3</strong></td><td align="center"><strong>int.4</strong></td><td align="center"><strong>int.5</strong></td></tr>
+          <tr><td align="left">Uno, Ethernet</td><td align="center">2</td><td align="center">3</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+          <tr><td align="left">Mega2560</td><td align="center">2</td><td align="center">3</td><td align="center">21</td><td align="center">20</td><td align="center">19</td><td align="center">18</td></tr>
+          <tr><td align="left">Leonardo</td><td align="center">3</td><td align="center">2</td><td align="center">0</td><td align="center">1</td><td align="center">7</td><td>&nbsp;</td></tr>
+          <tr><td align="left">Due</td><td align="center" colspan="6"><strong>(see below)</strong></td></tr>
+          </tbody></table>
+          <p class="vspace"></p><p>The Arduino Due board has powerful interrupt capabilities that allows you to attach an interrupt function on all available pins. You can directly specify the pin number in attachInterrupt().
+          </p>
+          <p class="vspace"></p><h4>Note</h4>
+          <p><em>Inside the attached function, delay() won't work and the value returned by millis() will not increment.  Serial data received while in the function may be lost.  You should declare as volatile any variables that you modify within the attached function. See the section on <span class="wikiword">ISRs</span> below for more information.</em>
+          </p>
+          <p class="vspace"></p><h4>Using Interrupts</h4>
+          <p>Interrupts are useful for making things happen automatically in microcontroller programs, and can help solve timing problems. Good tasks for using an interrupt may include reading a rotary encoder, or monitoring user input.
+          </p>
+          <p class="vspace"></p><p>If you wanted to insure that a program always caught the pulses from a rotary encoder, so that it never misses a pulse, it would make it very tricky to write a program to do anything else, because the program would need to constantly poll the sensor lines for the encoder, in order to catch pulses when they occurred. Other sensors have a similar interface dynamic too, such as trying to read a sound sensor that is trying to catch a click, or an infrared slot sensor (photo-interrupter) trying to catch a coin drop. In all of these situations, using an interrupt can free the microcontroller to get some other work done while not missing the input.
+          </p>
+          <p class="vspace"></p><h4>About Interrupt Service Routines</h4>
+          <p><span class="wikiword">ISRs</span> are special kinds of functions that have some unique limitations most other functions do not have.  An ISR cannot have any parameters, and they shouldn't return anything.
+          </p>
+          <p class="vspace"></p><p>Generally, an ISR should be as short and fast as possible. If your sketch uses multiple <span class="wikiword">ISRs</span>, only one can run at a time, other interrupts will be ignored (turned off) until the current one is finished. as delay() and millis() both rely on interrupts, they will not work while an ISR is running. delayMicroseconds(), which does not rely on interrupts, will work as expected.
+          </p>
+          <p class="vspace"></p><p>Typically global variables are used to pass data between an ISR and the main program. To make sure variables used in an ISR are updated correctly, declare them as <code>volatile</code>. 
+          </p>
+          <p class="vspace"></p><p>For more information on interrupts, see <a class="urllink" href="http://gammon.com.au/interrupts" target="_blank" rel="nofollow">Nick Gammon's notes</a>.
+          </p>
+          <p class="vspace"></p><h4>Syntax</h4>
+          <table width="80%" border="0" cellspacing="0" cellpadding="5"><tbody><tr><td width="400" valign="top"> attachInterrupt(interrupt, ISR, mode)
+          </td></tr><tr><td width="400" valign="top"> attachInterrupt(pin, ISR, mode)
+          </td><td valign="top"> (<em>Arduino Due only</em>)
+          </td></tr></tbody></table>
+          <p class="vspace"></p><h4>Parameters</h4>
+          <table width="80%" border="0" cellspacing="0" cellpadding="5"><tbody><tr><td width="150" valign="top"> <strong>interrupt</strong>: 
+          </td><td width="240" valign="top"> the number of the interrupt (<em>int</em>)
+          <p class="vspace"></p></td></tr><tr><td width="150" valign="top">  <strong>pin</strong>:
+          </td><td width="240" valign="top"> the pin number
+          </td><td valign="top">(<em>Arduino Due only</em>)
+          <p class="vspace"></p></td></tr><tr><td width="150" valign="top"> <strong>ISR</strong>:
+          </td><td width="240" valign="top"> the ISR to call when the interrupt occurs; this function must take no parameters and return nothing. This function is sometimes referred to as an <em>interrupt service routine.</em>
+          <p class="vspace"></p></td></tr><tr><td width="150" valign="top"> <strong>mode</strong>:
+          </td><td width="240" valign="top">
+          <p>defines when the interrupt should be triggered. Four contstants are predefined as valid values:
+          </p><ul><li><strong>LOW</strong> to trigger the interrupt whenever the pin is low, 
+          </li><li><strong>CHANGE</strong> to trigger the interrupt whenever the pin changes value
+          </li><li><strong>RISING</strong> to trigger when the pin goes from low to high, 
+          </li><li><strong>FALLING</strong> for when the pin goes from high to low.
+          </li></ul><p class="vspace"></p></td></tr><tr><td width="150" valign="top">
+          </td><td width="240" valign="top">
+          <p>The Due board allows also:
+          </p>
+          <p class="vspace"></p></td></tr><tr><td width="150" valign="top">
+          </td><td width="240" valign="top">
+          <ul><li><strong>HIGH</strong> to trigger the interrupt whenever the pin is high.
+          </li></ul></td><td valign="top">(<em>Arduino Due only</em>)
+          <p class="vspace"></p></td></tr></tbody></table>
+          <p class="vspace"></p><h4>Returns</h4>
+          <p>none
+          </p>
+          <p class="vspace"></p><h4>Example</h4>
+          <p>
+          <div class="sourceblock " id="sourceblock1">
+            <div class="sourceblocktext"><div class="arduino"><span class="kw1">int</span> pin <span class="sy0">=</span> <span class="nu0">13</span><span class="sy0">;</span><br>
+          volatile <span class="kw1">int</span> state <span class="sy0">=</span> <span class="kw2">LOW</span><span class="sy0">;</span><br>
+          <br>
+          <span class="kw1">void</span> <span class="kw3">setup</span><span class="br0">(</span><span class="br0">)</span><br>
+          <span class="br0">{</span><br>
+          &nbsp; <span class="kw1">pinMode</span><span class="br0">(</span>pin<span class="sy0">,</span> <span class="kw2">OUTPUT</span><span class="br0">)</span><span class="sy0">;</span><br>
+          &nbsp; <span class="kw1">attachInterrupt</span><span class="br0">(</span><span class="nu0">0</span><span class="sy0">,</span> blink<span class="sy0">,</span> <span class="kw2">CHANGE</span><span class="br0">)</span><span class="sy0">;</span><br>
+          <span class="br0">}</span><br>
+          <br>
+          <span class="kw1">void</span> <span class="kw3">loop</span><span class="br0">(</span><span class="br0">)</span><br>
+          <span class="br0">{</span><br>
+          &nbsp; <span class="kw1">digitalWrite</span><span class="br0">(</span>pin<span class="sy0">,</span> state<span class="br0">)</span><span class="sy0">;</span><br>
+          <span class="br0">}</span><br>
+          <br>
+          <span class="kw1">void</span> blink<span class="br0">(</span><span class="br0">)</span><br>
+          <span class="br0">{</span><br>
+          &nbsp; state <span class="sy0">=</span> <span class="sy0">!</span>state<span class="sy0">;</span><br>
+          <span class="br0">}</span></div></div>
+          </div>
+      ]]>
+  </description>
+  <image>/Assets/Abacus.png</image>
+  <group>External Interrupts</group>
+</item>
+  //External Interrupts - detachInterrupt()
+  <item>
+    <title>detachInterrupt()</title>
+    <subtitle></subtitle>
+    <description>
+      <![CDATA[
+          <div id="wikitext">
+          <h4>Description</h4>
+          <p>Turns off the given interrupt.
+          </p>
+          <p class="vspace"></p><h4>Syntax</h4>
+          <table width="80%" border="0" cellspacing="0" cellpadding="5"><tbody><tr><td width="400" valign="top"> detachInterrupt(<em>interrupt</em>)
+          </td></tr><tr><td width="400" valign="top"> detachInterrupt(<em>pin</em>)
+          </td><td valign="top"> (<em>Arduino Due only</em>)
+          </td></tr></tbody></table>
+          <p class="vspace"></p><h4>Parameters</h4>
+          <ul><li><em>interrupt</em>: the number of the interrupt to disable (see <a class="wikilink" href="http://arduino.cc/en/Reference/AttachInterrupt">attachInterrupt</a>() for more details).
+          </li><li><em>pin</em>: the pin number of the interrupt to disable (<em>Arduino Due only</em>)
+          </li></ul>
+          </div>
+      ]]>
+    </description>
+    <image>/Assets/Abacus.png</image>
+    <group>External Interrupts</group>
+  </item>
+
+  Interrupts - interrupts()
+  <item>
+    <title>interrupt()</title>
+    <subtitle></subtitle>
+    <description>
+      <![CDATA[
+          <div id="wikitext">
+          <p class="vspace"></p><h4>Description</h4>
+          <p>Specifies a named Interrupt Service Routine (ISR) to call when an interrupt occurs.  Replaces any previous function that was attached to the interrupt.  Most Arduino boards have two external interrupts: numbers 0 (on digital pin 2) and 1 (on digital pin 3). The table below shows the available interrupt pins on various boards.
+          </p>
+          <p class="vspace"></p>
+          <table width="90%" style="border-collapse: collapse;" border="0" cellpadding="5"><tbody><tr><td align="left"><strong>Board</strong></td><td align="center"><strong>int.0</strong></td><td align="center"><strong>int.1</strong></td><td align="center"><strong>int.2</strong></td><td align="center"><strong>int.3</strong></td><td align="center"><strong>int.4</strong></td><td align="center"><strong>int.5</strong></td></tr>
+          <tr><td align="left">Uno, Ethernet</td><td align="center">2</td><td align="center">3</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+          <tr><td align="left">Mega2560</td><td align="center">2</td><td align="center">3</td><td align="center">21</td><td align="center">20</td><td align="center">19</td><td align="center">18</td></tr>
+          <tr><td align="left">Leonardo</td><td align="center">3</td><td align="center">2</td><td align="center">0</td><td align="center">1</td><td align="center">7</td><td>&nbsp;</td></tr>
+          <tr><td align="left">Due</td><td align="center" colspan="6"><strong>(see below)</strong></td></tr>
+          </tbody></table>
+          <p class="vspace"></p><p>The Arduino Due board has powerful interrupt capabilities that allows you to attach an interrupt function on all available pins. You can directly specify the pin number in attachInterrupt().
+          </p>
+          <p class="vspace"></p><h4>Note</h4>
+          <p><em>Inside the attached function, delay() won't work and the value returned by millis() will not increment.  Serial data received while in the function may be lost.  You should declare as volatile any variables that you modify within the attached function. See the section on <span class="wikiword">ISRs</span> below for more information.</em>
+          </p>
+          <p class="vspace"></p><h4>Using Interrupts</h4>
+          <p>Interrupts are useful for making things happen automatically in microcontroller programs, and can help solve timing problems. Good tasks for using an interrupt may include reading a rotary encoder, or monitoring user input.
+          </p>
+          <p class="vspace"></p><p>If you wanted to insure that a program always caught the pulses from a rotary encoder, so that it never misses a pulse, it would make it very tricky to write a program to do anything else, because the program would need to constantly poll the sensor lines for the encoder, in order to catch pulses when they occurred. Other sensors have a similar interface dynamic too, such as trying to read a sound sensor that is trying to catch a click, or an infrared slot sensor (photo-interrupter) trying to catch a coin drop. In all of these situations, using an interrupt can free the microcontroller to get some other work done while not missing the input.
+          </p>
+          <p class="vspace"></p><h4>About Interrupt Service Routines</h4>
+          <p><span class="wikiword">ISRs</span> are special kinds of functions that have some unique limitations most other functions do not have.  An ISR cannot have any parameters, and they shouldn't return anything.
+          </p>
+          <p class="vspace"></p><p>Generally, an ISR should be as short and fast as possible. If your sketch uses multiple <span class="wikiword">ISRs</span>, only one can run at a time, other interrupts will be ignored (turned off) until the current one is finished. as delay() and millis() both rely on interrupts, they will not work while an ISR is running. delayMicroseconds(), which does not rely on interrupts, will work as expected.
+          </p>
+          <p class="vspace"></p><p>Typically global variables are used to pass data between an ISR and the main program. To make sure variables used in an ISR are updated correctly, declare them as <code>volatile</code>. 
+          </p>
+          <p class="vspace"></p><p>For more information on interrupts, see <a class="urllink" href="http://gammon.com.au/interrupts" target="_blank" rel="nofollow">Nick Gammon's notes</a>.
+          </p>
+          <p class="vspace"></p><h4>Syntax</h4>
+          <table width="80%" border="0" cellspacing="0" cellpadding="5"><tbody><tr><td width="400" valign="top"> attachInterrupt(interrupt, ISR, mode)
+          </td></tr><tr><td width="400" valign="top"> attachInterrupt(pin, ISR, mode)
+          </td><td valign="top"> (<em>Arduino Due only</em>)
+          </td></tr></tbody></table>
+          <p class="vspace"></p><h4>Parameters</h4>
+          <table width="80%" border="0" cellspacing="0" cellpadding="5"><tbody><tr><td width="150" valign="top"> <strong>interrupt</strong>: 
+          </td><td width="240" valign="top"> the number of the interrupt (<em>int</em>)
+          <p class="vspace"></p></td></tr><tr><td width="150" valign="top">  <strong>pin</strong>:
+          </td><td width="240" valign="top"> the pin number
+          </td><td valign="top">(<em>Arduino Due only</em>)
+          <p class="vspace"></p></td></tr><tr><td width="150" valign="top"> <strong>ISR</strong>:
+          </td><td width="240" valign="top"> the ISR to call when the interrupt occurs; this function must take no parameters and return nothing. This function is sometimes referred to as an <em>interrupt service routine.</em>
+          <p class="vspace"></p></td></tr><tr><td width="150" valign="top"> <strong>mode</strong>:
+          </td><td width="240" valign="top">
+          <p>defines when the interrupt should be triggered. Four contstants are predefined as valid values:
+          </p><ul><li><strong>LOW</strong> to trigger the interrupt whenever the pin is low, 
+          </li><li><strong>CHANGE</strong> to trigger the interrupt whenever the pin changes value
+          </li><li><strong>RISING</strong> to trigger when the pin goes from low to high, 
+          </li><li><strong>FALLING</strong> for when the pin goes from high to low.
+          </li></ul><p class="vspace"></p></td></tr><tr><td width="150" valign="top">
+          </td><td width="240" valign="top">
+          <p>The Due board allows also:
+          </p>
+          <p class="vspace"></p></td></tr><tr><td width="150" valign="top">
+          </td><td width="240" valign="top">
+          <ul><li><strong>HIGH</strong> to trigger the interrupt whenever the pin is high.
+          </li></ul></td><td valign="top">(<em>Arduino Due only</em>)
+          <p class="vspace"></p></td></tr></tbody></table>
+          <p class="vspace"></p><h4>Returns</h4>
+          <p>none
+          </p>
+          <p class="vspace"></p><h4>Example</h4>
+          <p>
+          <div class="sourceblock " id="sourceblock1">
+            <div class="sourceblocktext"><div class="arduino"><span class="kw1">int</span> pin <span class="sy0">=</span> <span class="nu0">13</span><span class="sy0">;</span><br>
+          volatile <span class="kw1">int</span> state <span class="sy0">=</span> <span class="kw2">LOW</span><span class="sy0">;</span><br>
+          <br>
+          <span class="kw1">void</span> <span class="kw3">setup</span><span class="br0">(</span><span class="br0">)</span><br>
+          <span class="br0">{</span><br>
+          &nbsp; <span class="kw1">pinMode</span><span class="br0">(</span>pin<span class="sy0">,</span> <span class="kw2">OUTPUT</span><span class="br0">)</span><span class="sy0">;</span><br>
+          &nbsp; <span class="kw1">attachInterrupt</span><span class="br0">(</span><span class="nu0">0</span><span class="sy0">,</span> blink<span class="sy0">,</span> <span class="kw2">CHANGE</span><span class="br0">)</span><span class="sy0">;</span><br>
+          <span class="br0">}</span><br>
+          <br>
+          <span class="kw1">void</span> <span class="kw3">loop</span><span class="br0">(</span><span class="br0">)</span><br>
+          <span class="br0">{</span><br>
+          &nbsp; <span class="kw1">digitalWrite</span><span class="br0">(</span>pin<span class="sy0">,</span> state<span class="br0">)</span><span class="sy0">;</span><br>
+          <span class="br0">}</span><br>
+          <br>
+          <span class="kw1">void</span> blink<span class="br0">(</span><span class="br0">)</span><br>
+          <span class="br0">{</span><br>
+          &nbsp; state <span class="sy0">=</span> <span class="sy0">!</span>state<span class="sy0">;</span><br>
+          <span class="br0">}</span></div></div>
+          </div>
+      ]]>
+    </description>
+    <image>/Assets/Abacus.png</image>
+    <group>Interrupts</group>
+  </item>
+  Interrupts -  noInterrupts()
+  <item>
+    <title>noInterrupt()</title>
+    <subtitle></subtitle>
+    <description>
+      <![CDATA[
+          <div id="wikitext">
+          <h4>Description</h4>
+          <p>Disables interrupts (you can re-enable them with interrupts()).  Interrupts allow certain important tasks to happen in the background and are enabled by default.  Some functions will not work while interrupts are disabled, and incoming communication may be ignored.  Interrupts can slightly disrupt the timing of code, however, and may be disabled for particularly critical sections of code.
+          </p>
+          <p class="vspace"></p><h4>Parameters</h4>
+          <p>None.
+          </p>
+          <p class="vspace"></p><h4>Returns</h4>
+          <p>None.
+          </p>
+          <p class="vspace"></p><h4>Example</h4>
+          <pre>void setup() {}
+
+          void loop()
+          {
+            noInterrupts();
+            // critical, time-sensitive code here
+            interrupts();
+            // other code here
+          }
+
+          </pre>
+          </div>
+      ]]>
+    </description>
+    <image>/Assets/Abacus.png</image>
+    <group>Interrupts</group>
+  </item>
+
 </items>
+
+
