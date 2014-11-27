@@ -1,154 +1,152 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <items xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-
-  //structure - setup()
+  <!--Structure - setup()-->
   <item>
     <title>setup()</title>
     <subtitle></subtitle>
     <description>
       <![CDATA[
-<!DOCTYPE html>
-<html>
+        <!DOCTYPE html>
+        <html>
 
-<body>
-    <style>
-        * {
-            font-family: "Segoe UI", Arial, sans-serif;
+        <body>
+            <style>
+                * {
+                    font-family: "Segoe UI", Arial, sans-serif;
+                }
+                .example {
+                    background-color: red;
+                    color: #FFFFFF;
+                    width: 200px;
+                    height: 200px;
+                    padding: 10px;
+                }
+                #demo {
+                    border: 1px solid #000;
+                }
+            </style>
+        <div id="wikitext">
+        <p>The setup() function is called when a sketch starts.  Use it to initialize variables, pin modes, start using libraries, etc. The setup function will only run once, after each powerup or reset of the Arduino board.
+        </p>
+        <p class="vspace"></p><h3>Example</h3>
+        <pre> 
+        int buttonPin = 3;
+
+        void setup()
+        {
+          Serial.begin(9600);
+          pinMode(buttonPin, INPUT);
         }
-        .example {
-            background-color: red;
-            color: #FFFFFF;
-            width: 200px;
-            height: 200px;
-            padding: 10px;
+
+        void loop()
+        {
+          // ...
         }
-        #demo {
-            border: 1px solid #000;
-        }
-    </style>
-<div id="wikitext">
-<p>The setup() function is called when a sketch starts.  Use it to initialize variables, pin modes, start using libraries, etc. The setup function will only run once, after each powerup or reset of the Arduino board.
-</p>
-<p class="vspace"></p><h3>Example</h3>
-<pre> 
-int buttonPin = 3;
 
-void setup()
-{
-  Serial.begin(9600);
-  pinMode(buttonPin, INPUT);
-}
-
-void loop()
-{
-  // ...
-}
-
-</pre>
-</div>
+        </pre>
+        </div>
     
-</body>
-</html>
-    
+        </body>
+        </html>
       ]]>
     </description>
     <image>/Assets/Abacus.png</image>
     <group>Structure</group>
   </item>
-  //Structure - loop()
+  <!--Structure - loop()-->
   <item>
     <title>loop()</title>
     <subtitle></subtitle>
     <description>
       <![CDATA[
-<!DOCTYPE html>
-<html>
+        <!DOCTYPE html>
+        <html>
 
-<body>
-    <style>
-        * {
-            font-family: "Segoe UI", Arial, sans-serif;
+        <body>
+            <style>
+                * {
+                    font-family: "Segoe UI", Arial, sans-serif;
+                }
+                .example {
+                    background-color: red;
+                    color: #FFFFFF;
+                    width: 200px;
+                    height: 200px;
+                    padding: 10px;
+                }
+                #demo {
+                    border: 1px solid #000;
+                }
+            </style>
+        <div id="wikitext">
+        <p>After creating a setup() function, which initializes and sets the initial values, the loop() function does precisely what its name suggests, and loops consecutively, allowing your program to change and respond.  Use it to actively control the Arduino board.
+        </p>
+        <p class="vspace"></p><h3>Example</h3>
+        <pre> 
+        const int buttonPin = 3;
+
+        // setup initializes serial and the button pin
+        void setup()
+        {
+          Serial.begin(9600);
+          pinMode(buttonPin, INPUT);
         }
-        .example {
-            background-color: red;
-            color: #FFFFFF;
-            width: 200px;
-            height: 200px;
-            padding: 10px;
+
+        // loop checks the button pin each time,
+        // and will send serial if it is pressed
+        void loop()
+        {
+          if (digitalRead(buttonPin) == HIGH)
+            Serial.write('H');
+          else
+            Serial.write('L');
+
+          delay(1000);
         }
-        #demo {
-            border: 1px solid #000;
-        }
-    </style>
-<div id="wikitext">
-<p>After creating a setup() function, which initializes and sets the initial values, the loop() function does precisely what its name suggests, and loops consecutively, allowing your program to change and respond.  Use it to actively control the Arduino board.
-</p>
-<p class="vspace"></p><h3>Example</h3>
-<pre> 
-const int buttonPin = 3;
 
-// setup initializes serial and the button pin
-void setup()
-{
-  Serial.begin(9600);
-  pinMode(buttonPin, INPUT);
-}
-
-// loop checks the button pin each time,
-// and will send serial if it is pressed
-void loop()
-{
-  if (digitalRead(buttonPin) == HIGH)
-    Serial.write('H');
-  else
-    Serial.write('L');
-
-  delay(1000);
-}
-
-</pre>
-</div>
+        </pre>
+        </div>
     
-</body>
-</html>
-    
+        </body>
+        </html>
       ]]>
     </description>
     <image>/Assets/Abacus.png</image>
     <group>Structure</group>
   </item>
-  //constant - high/low
+
+  <!--Constants - high/low-->
   <item>
     <title>HIGH | LOW</title>
     <subtitle></subtitle>
     <description>
       <![CDATA[
-<div id="wikitext">
-<p class="vspace"></p><h3>Defining Pin Levels, HIGH and LOW</h3>
-<p>When reading or writing to a digital pin there are only two possible values a pin can take/be-set-to: <strong>HIGH</strong> and <strong>LOW</strong>.
-</p>
-<p class="vspace"></p><p><strong>HIGH</strong>
-</p>
-<p class="vspace"></p><p>The meaning of HIGH (in reference to a pin) is somewhat different depending on whether a pin is set to an INPUT or OUTPUT. 
-When a pin is configured as an INPUT with pinMode, and read with digitalRead, the microcontroller will report HIGH if a voltage of 3 volts or more is present at the pin. 
-</p>
-<p class="vspace"></p><p>A pin may also be configured as an INPUT with pinMode, and subsequently made HIGH with digitalWrite, this will set the internal 20K pullup resistors, which will <em>steer</em> the input pin to a HIGH reading unless it is pulled LOW by external circuitry. This is how INPUT_PULLUP works as well
-</p>
-<p class="vspace"></p><p>When a pin is configured to OUTPUT with pinMode, and set to HIGH with digitalWrite, the pin is at 5 volts. In this state it can <em>source</em> current, e.g. light an LED that is connected through a series resistor to ground, or to another pin configured as an output, and set to LOW.
-</p>
-<p class="vspace"></p><p><strong>LOW</strong>
-</p>
-<p class="vspace"></p><p>The meaning of LOW also has a different meaning depending on whether a pin is set to INPUT or OUTPUT. When a pin is configured as an INPUT with pinMode, and read with digitalRead, the microcontroller will report LOW if a voltage of 2 volts or less is present at the pin. 
-</p>
-<p class="vspace"></p><p>When a pin is configured to OUTPUT with pinMode, and set to LOW with digitalWrite, the pin is at 0 volts. In this state it can <em>sink</em> current, e.g. light an LED that is connected through a series resistor to, +5 volts, or to another pin configured as an output, and set to HIGH.
-</p>
-</div>
+        <div id="wikitext">
+        <p class="vspace"></p><h3>Defining Pin Levels, HIGH and LOW</h3>
+        <p>When reading or writing to a digital pin there are only two possible values a pin can take/be-set-to: <strong>HIGH</strong> and <strong>LOW</strong>.
+        </p>
+        <p class="vspace"></p><p><strong>HIGH</strong>
+        </p>
+        <p class="vspace"></p><p>The meaning of HIGH (in reference to a pin) is somewhat different depending on whether a pin is set to an INPUT or OUTPUT. 
+        When a pin is configured as an INPUT with pinMode, and read with digitalRead, the microcontroller will report HIGH if a voltage of 3 volts or more is present at the pin. 
+        </p>
+        <p class="vspace"></p><p>A pin may also be configured as an INPUT with pinMode, and subsequently made HIGH with digitalWrite, this will set the internal 20K pullup resistors, which will <em>steer</em> the input pin to a HIGH reading unless it is pulled LOW by external circuitry. This is how INPUT_PULLUP works as well
+        </p>
+        <p class="vspace"></p><p>When a pin is configured to OUTPUT with pinMode, and set to HIGH with digitalWrite, the pin is at 5 volts. In this state it can <em>source</em> current, e.g. light an LED that is connected through a series resistor to ground, or to another pin configured as an output, and set to LOW.
+        </p>
+        <p class="vspace"></p><p><strong>LOW</strong>
+        </p>
+        <p class="vspace"></p><p>The meaning of LOW also has a different meaning depending on whether a pin is set to INPUT or OUTPUT. When a pin is configured as an INPUT with pinMode, and read with digitalRead, the microcontroller will report LOW if a voltage of 2 volts or less is present at the pin. 
+        </p>
+        <p class="vspace"></p><p>When a pin is configured to OUTPUT with pinMode, and set to LOW with digitalWrite, the pin is at 0 volts. In this state it can <em>sink</em> current, e.g. light an LED that is connected through a series resistor to, +5 volts, or to another pin configured as an output, and set to HIGH.
+        </p>
+        </div>
       ]]>
     </description>
     <image>/Assets/Abacus.png</image>
     <group>Constants</group>
   </item>
-  //constant - input/output/input_pullup
+  <!--Constants - input/output/input_pullup-->
   <item>
     <title>INPUT | OUTPUT | INPUT_PULLUP</title>
     <subtitle></subtitle>
@@ -175,7 +173,7 @@ When a pin is configured as an INPUT with pinMode, and read with digitalRead, th
     <image>/Assets/Abacus.png</image>
     <group>Constants</group>
   </item>
-  //constant - led_builtin
+  <!--Constants - led_builtin-->
   <item>
     <title>LED_BUILTIN</title>
     <subtitle></subtitle>
@@ -191,7 +189,8 @@ When a pin is configured as an INPUT with pinMode, and read with digitalRead, th
     <image>/Assets/Abacus.png</image>
     <group>Constants</group>
   </item>
-  //Utilities - PROGMEM
+
+  <!--Utilities - PROGMEM-->
   <item>
     <title>PROGMEM</title>
     <subtitle></subtitle>
@@ -325,7 +324,8 @@ When a pin is configured as an INPUT with pinMode, and read with digitalRead, th
     <image>/Assets/Abacus.png</image>
     <group>Utilities</group>
   </item>
-  //Digital I/O - pinMode()
+
+  <!--Digital I/O - pinMode()-->
   <item>
     <title>pinMode()</title>
     <subtitle></subtitle>
@@ -379,7 +379,7 @@ When a pin is configured as an INPUT with pinMode, and read with digitalRead, th
     <image>/Assets/Abacus.png</image>
     <group>Digital I/O</group>
   </item>
-  //Digital I/O - digitalWrite()
+  <!--Digital I/O - digitalWrite()-->
   <item>
     <title>digitalWrite()</title>
     <subtitle></subtitle>
@@ -435,7 +435,7 @@ When a pin is configured as an INPUT with pinMode, and read with digitalRead, th
     <image>/Assets/Abacus.png</image>
     <group>Digital I/O</group>
   </item>
-  //Digital I/O - digitalRead()
+  <!--Digital I/O - digitalRead()-->
   <item>
     <title>digitalRead()</title>
     <subtitle></subtitle>
@@ -487,7 +487,8 @@ When a pin is configured as an INPUT with pinMode, and read with digitalRead, th
     <image>/Assets/Abacus.png</image>
     <group>Digital I/O</group>
   </item>
-  //Analog I/O - analogReference()
+
+  <!--Analog I/O - analogReference()-->
   <item>
   <title>analogReference()</title>
   <subtitle></subtitle>
@@ -525,7 +526,7 @@ When a pin is configured as an INPUT with pinMode, and read with digitalRead, th
   <image>/Assets/Abacus.png</image>
   <group>Analog I/O</group>
 </item>
-  //Analog I/O - analogRead()
+  <!--Analog I/O - analogRead()-->
   <item>
     <title>analogRead()</title>
     <subtitle></subtitle>
@@ -575,7 +576,7 @@ When a pin is configured as an INPUT with pinMode, and read with digitalRead, th
     <image>/Assets/Abacus.png</image>
     <group>Analog I/O</group>
   </item>
-  //analog I/O - analogWrite()
+  <!--Analog I/O - analogWrite()-->
   <item>
     <title>analogWrite()</title>
     <subtitle></subtitle>
@@ -636,7 +637,8 @@ When a pin is configured as an INPUT with pinMode, and read with digitalRead, th
     <image>/Assets/Abacus.png</image>
     <group>Analog I/O</group>
   </item>
-  //Due Only - analogReadResolution()
+
+  <!--Due Only - analogReadResolution()-->
   <item>
     <title>analogReadResolution()</title>
     <subtitle></subtitle>
@@ -709,7 +711,7 @@ When a pin is configured as an INPUT with pinMode, and read with digitalRead, th
     <image>/Assets/Abacus.png</image>
     <group>Due Only</group>
   </item>
-  //Due Only - analogWriteResolution()
+  <!--Due Only - analogWriteResolution()-->
   <item>
   <title>analogWriteResolution()</title>
   <subtitle></subtitle>
@@ -782,7 +784,8 @@ When a pin is configured as an INPUT with pinMode, and read with digitalRead, th
   <image>/Assets/Abacus.png</image>
   <group>Due Only</group>
 </item>
-   //Advanced I/O - tone()
+
+  <!--Advanced I/O - tone()-->
   <item>
   <title>tone()</title>
   <subtitle></subtitle>
@@ -819,9 +822,9 @@ When a pin is configured as an INPUT with pinMode, and read with digitalRead, th
   <image>/Assets/Abacus.png</image>
   <group>Advanced I/O</group>
 </item>
-  //Advanced I/O - noTone()
+  <!--Advanced I/O - noTone()-->
   <item>
-    <title>notone()</title>
+    <title>noTone()</title>
     <subtitle></subtitle>
     <description>
       <![CDATA[
@@ -846,7 +849,7 @@ When a pin is configured as an INPUT with pinMode, and read with digitalRead, th
     <image>/Assets/Abacus.png</image>
     <group>Advanced I/O</group>
   </item>
-  //Advanced I/O - shiftOut()
+  <!--Advanced I/O - shiftOut()-->
   <item>
     <title>shiftOut()</title>
     <subtitle></subtitle>
@@ -947,7 +950,7 @@ When a pin is configured as an INPUT with pinMode, and read with digitalRead, th
     <image>/Assets/Abacus.png</image>
     <group>Advanced I/O</group>
   </item>
-  //Advanced I/O - shiftIn()
+  <!--Advanced I/O - shiftIn()-->
   <item>
     <title>shiftIn()</title>
     <subtitle></subtitle>
@@ -981,7 +984,7 @@ When a pin is configured as an INPUT with pinMode, and read with digitalRead, th
     <image>/Assets/Abacus.png</image>
     <group>Advanced I/O</group>
   </item>
-  //Advanced I/O - pulseIn()
+  <!--Advanced I/O - pulseIn()-->
   <item>
     <title>pulseIn()</title>
     <subtitle></subtitle>
@@ -1030,7 +1033,7 @@ When a pin is configured as an INPUT with pinMode, and read with digitalRead, th
     <group>Advanced I/O</group>
   </item>
 
-  //Bits and Bytes - lowByte()
+  <!--Bits and Bytes - lowByte()-->
   <item>
     <title>lowByte()</title>
     <subtitle></subtitle>
@@ -1055,7 +1058,7 @@ When a pin is configured as an INPUT with pinMode, and read with digitalRead, th
     <image>/Assets/Abacus.png</image>
     <group>Bits and Bytes</group>
   </item>
-  //Bits and Bytes - highByte()
+  <!--Bits and Bytes - highByte()-->
   <item>
   <title>highByte()</title>
   <subtitle></subtitle>
@@ -1080,7 +1083,7 @@ When a pin is configured as an INPUT with pinMode, and read with digitalRead, th
   <image>/Assets/Abacus.png</image>
   <group>Bits and Bytes</group>
 </item>
-  //Bits and Bytes - bitRead()
+  <!--Bits and Bytes - bitRead()-->
   <item>
   <title>bitRead()</title>
   <subtitle></subtitle>
@@ -1107,7 +1110,7 @@ When a pin is configured as an INPUT with pinMode, and read with digitalRead, th
   <image>/Assets/Abacus.png</image>
   <group>Bits and Bytes</group>
 </item>
-  //Bits and Bytes - bitWrite()
+  <!--Bits and Bytes - bitWrite()-->
   <item>
   <title>bitWrite()</title>
   <subtitle></subtitle>
@@ -1136,7 +1139,7 @@ When a pin is configured as an INPUT with pinMode, and read with digitalRead, th
   <image>/Assets/Abacus.png</image>
   <group>Bits and Bytes</group>
 </item>
-  //Bits and Bytes - bitSet()
+  <!--Bits and Bytes - bitSet()-->
   <item>
   <title>bitSet()</title>
   <subtitle></subtitle>
@@ -1164,7 +1167,7 @@ When a pin is configured as an INPUT with pinMode, and read with digitalRead, th
   <image>/Assets/Abacus.png</image>
   <group>Bits and Bytes</group>
 </item>
-  //Bits and Bytes - bitClear()
+  <!--Bits and Bytes - bitClear()-->
   <item>
   <title>bitClear()</title>
   <subtitle></subtitle>
@@ -1191,7 +1194,7 @@ When a pin is configured as an INPUT with pinMode, and read with digitalRead, th
   <image>/Assets/Abacus.png</image>
   <group>Bits and Bytes</group>
 </item>
-  //Bits and Bytes - bit()
+  <!--Bits and Bytes - bit()-->
   <item>
   <title>bit()</title>
   <subtitle></subtitle>
@@ -1216,8 +1219,8 @@ When a pin is configured as an INPUT with pinMode, and read with digitalRead, th
   <image>/Assets/Abacus.png</image>
   <group>Bits and Bytes</group>
 </item>
-  
-  //External Interrupts - attachInterrupt()
+
+  <!--External Interrupts - attachInterrupt()-->
   <item>
   <title>attachInterrupt()</title>
   <subtitle></subtitle>
@@ -1312,7 +1315,7 @@ When a pin is configured as an INPUT with pinMode, and read with digitalRead, th
   <image>/Assets/Abacus.png</image>
   <group>External Interrupts</group>
 </item>
-  //External Interrupts - detachInterrupt()
+  <!--External Interrupts - detachInterrupt()-->
   <item>
     <title>detachInterrupt()</title>
     <subtitle></subtitle>
@@ -1338,9 +1341,9 @@ When a pin is configured as an INPUT with pinMode, and read with digitalRead, th
     <group>External Interrupts</group>
   </item>
 
-  Interrupts - interrupts()
+  <!--Interrupts - interrupts()-->
   <item>
-    <title>interrupt()</title>
+    <title>interrupts()</title>
     <subtitle></subtitle>
     <description>
       <![CDATA[
@@ -1433,9 +1436,9 @@ When a pin is configured as an INPUT with pinMode, and read with digitalRead, th
     <image>/Assets/Abacus.png</image>
     <group>Interrupts</group>
   </item>
-  Interrupts -  noInterrupts()
+  <!--Interrupts -  noInterrupts()-->
   <item>
-    <title>noInterrupt()</title>
+    <title>noInterrupts()</title>
     <subtitle></subtitle>
     <description>
       <![CDATA[
@@ -1467,7 +1470,4 @@ When a pin is configured as an INPUT with pinMode, and read with digitalRead, th
     <image>/Assets/Abacus.png</image>
     <group>Interrupts</group>
   </item>
-
 </items>
-
-
