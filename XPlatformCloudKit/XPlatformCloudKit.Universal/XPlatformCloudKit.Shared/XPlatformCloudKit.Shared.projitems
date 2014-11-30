@@ -45,19 +45,48 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="$(MSBuildThisFileDirectory)Assets\Abacus.png" />
+    <Content Include="$(MSBuildThisFileDirectory)Assets\AdvancedIO.png" />
+    <Content Include="$(MSBuildThisFileDirectory)Assets\Binary-Code.png" />
+    <Content Include="$(MSBuildThisFileDirectory)Assets\Binary.png" />
+    <Content Include="$(MSBuildThisFileDirectory)Assets\Braces-01.png" />
+    <Content Include="$(MSBuildThisFileDirectory)Assets\Bullets - 02.png" />
+    <Content Include="$(MSBuildThisFileDirectory)Assets\Circle Info - 02.png" />
+    <Content Include="$(MSBuildThisFileDirectory)Assets\Devices01.png" />
+    <Content Include="$(MSBuildThisFileDirectory)Assets\DUE.png" />
+    <Content Include="$(MSBuildThisFileDirectory)Assets\Grid.png" />
+    <Content Include="$(MSBuildThisFileDirectory)Assets\HashTag.png" />
+    <Content Include="$(MSBuildThisFileDirectory)Assets\Headphone-Jack.png" />
+    <Content Include="$(MSBuildThisFileDirectory)Assets\IO.png" />
+    <Content Include="$(MSBuildThisFileDirectory)Assets\Key-Hash.png" />
+    <Content Include="$(MSBuildThisFileDirectory)Assets\Lambda-01.png" />
     <Content Include="$(MSBuildThisFileDirectory)Assets\Logo.png" />
     <Content Include="$(MSBuildThisFileDirectory)Assets\LogoOld.png" />
     <Content Include="$(MSBuildThisFileDirectory)Assets\Logo44px.png" />
     <Content Include="$(MSBuildThisFileDirectory)Assets\Logo71px.png" />
+    <Content Include="$(MSBuildThisFileDirectory)Assets\Node.png" />
+    <Content Include="$(MSBuildThisFileDirectory)Assets\Numbering .png" />
+    <Content Include="$(MSBuildThisFileDirectory)Assets\Parenthesis.png" />
+    <Content Include="$(MSBuildThisFileDirectory)Assets\Pie.png" />
+    <Content Include="$(MSBuildThisFileDirectory)Assets\Plugin.png" />
+    <Content Include="$(MSBuildThisFileDirectory)Assets\Power New.png" />
+    <Content Include="$(MSBuildThisFileDirectory)Assets\Robot.png" />
     <Content Include="$(MSBuildThisFileDirectory)Assets\SmallLogo.png" />
     <Content Include="$(MSBuildThisFileDirectory)Assets\SmallLogoOld.png" />
     <Content Include="$(MSBuildThisFileDirectory)Assets\SplashScreen.png" />
     <Content Include="$(MSBuildThisFileDirectory)Assets\SplashScreenOld.png" />
+    <Content Include="$(MSBuildThisFileDirectory)Assets\Store.png" />
     <Content Include="$(MSBuildThisFileDirectory)Assets\StoreLogo.png" />
     <Content Include="$(MSBuildThisFileDirectory)Assets\StoreLogoOld.png" />
+    <Content Include="$(MSBuildThisFileDirectory)Assets\Thunder.png" />
+    <Content Include="$(MSBuildThisFileDirectory)Assets\Tools01.png" />
+    <Content Include="$(MSBuildThisFileDirectory)Assets\Tools02.png" />
+    <Content Include="$(MSBuildThisFileDirectory)Assets\Vibration.png" />
+    <Content Include="$(MSBuildThisFileDirectory)Assets\Visual-Studio-2012.png" />
     <Content Include="$(MSBuildThisFileDirectory)Assets\WallpaperHorizontal.png" />
     <Content Include="$(MSBuildThisFileDirectory)Assets\WallpaperVertical.png" />
     <Content Include="$(MSBuildThisFileDirectory)Assets\WideLogo.png" />
     <Content Include="$(MSBuildThisFileDirectory)Assets\WideLogoOld.png" />
+    <Content Include="$(MSBuildThisFileDirectory)Assets\Window - 01.png" />
+    <Content Include="$(MSBuildThisFileDirectory)Assets\Windows-PC.png" />
   </ItemGroup>
 </Project>
