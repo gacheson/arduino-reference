@@ -46,14 +46,18 @@
   <ItemGroup>
     <Content Include="$(MSBuildThisFileDirectory)Assets\Abacus.png" />
     <Content Include="$(MSBuildThisFileDirectory)Assets\Logo.png" />
+    <Content Include="$(MSBuildThisFileDirectory)Assets\LogoOld.png" />
     <Content Include="$(MSBuildThisFileDirectory)Assets\Logo44px.png" />
     <Content Include="$(MSBuildThisFileDirectory)Assets\Logo71px.png" />
     <Content Include="$(MSBuildThisFileDirectory)Assets\SmallLogo.png" />
-    <Content Include="$(MSBuildThisFileDirectory)Assets\SplashScreen.gif" />
+    <Content Include="$(MSBuildThisFileDirectory)Assets\SmallLogoOld.png" />
+    <Content Include="$(MSBuildThisFileDirectory)Assets\SplashScreen.png" />
     <Content Include="$(MSBuildThisFileDirectory)Assets\SplashScreenOld.png" />
     <Content Include="$(MSBuildThisFileDirectory)Assets\StoreLogo.png" />
+    <Content Include="$(MSBuildThisFileDirectory)Assets\StoreLogoOld.png" />
     <Content Include="$(MSBuildThisFileDirectory)Assets\WallpaperHorizontal.png" />
     <Content Include="$(MSBuildThisFileDirectory)Assets\WallpaperVertical.png" />
     <Content Include="$(MSBuildThisFileDirectory)Assets\WideLogo.png" />
+    <Content Include="$(MSBuildThisFileDirectory)Assets\WideLogoOld.png" />
   </ItemGroup>
 </Project>
