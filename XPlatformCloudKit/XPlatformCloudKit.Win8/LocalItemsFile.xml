@@ -1347,89 +1347,27 @@
     <subtitle></subtitle>
     <description>
       <![CDATA[
-          <div id="wikitext">
-          <p class="vspace"></p><h4>Description</h4>
-          <p>Specifies a named Interrupt Service Routine (ISR) to call when an interrupt occurs.  Replaces any previous function that was attached to the interrupt.  Most Arduino boards have two external interrupts: numbers 0 (on digital pin 2) and 1 (on digital pin 3). The table below shows the available interrupt pins on various boards.
+          <h4>Description</h4>
+          <p>Re-enables interrupts (after they've been disabled by <a class="wikilink" href="http://arduino.cc/en/Reference/NoInterrupts">noInterrupts</a>()).  Interrupts allow certain important tasks to happen in the background and are enabled by default.  Some functions will not work while interrupts are disabled, and incoming communication may be ignored.  Interrupts can slightly disrupt the timing of code, however, and may be disabled for particularly critical sections of code.
           </p>
-          <p class="vspace"></p>
-          <table width="90%" style="border-collapse: collapse;" border="0" cellpadding="5"><tbody><tr><td align="left"><strong>Board</strong></td><td align="center"><strong>int.0</strong></td><td align="center"><strong>int.1</strong></td><td align="center"><strong>int.2</strong></td><td align="center"><strong>int.3</strong></td><td align="center"><strong>int.4</strong></td><td align="center"><strong>int.5</strong></td></tr>
-          <tr><td align="left">Uno, Ethernet</td><td align="center">2</td><td align="center">3</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
-          <tr><td align="left">Mega2560</td><td align="center">2</td><td align="center">3</td><td align="center">21</td><td align="center">20</td><td align="center">19</td><td align="center">18</td></tr>
-          <tr><td align="left">Leonardo</td><td align="center">3</td><td align="center">2</td><td align="center">0</td><td align="center">1</td><td align="center">7</td><td>&nbsp;</td></tr>
-          <tr><td align="left">Due</td><td align="center" colspan="6"><strong>(see below)</strong></td></tr>
-          </tbody></table>
-          <p class="vspace"></p><p>The Arduino Due board has powerful interrupt capabilities that allows you to attach an interrupt function on all available pins. You can directly specify the pin number in attachInterrupt().
-          </p>
-          <p class="vspace"></p><h4>Note</h4>
-          <p><em>Inside the attached function, delay() won't work and the value returned by millis() will not increment.  Serial data received while in the function may be lost.  You should declare as volatile any variables that you modify within the attached function. See the section on <span class="wikiword">ISRs</span> below for more information.</em>
-          </p>
-          <p class="vspace"></p><h4>Using Interrupts</h4>
-          <p>Interrupts are useful for making things happen automatically in microcontroller programs, and can help solve timing problems. Good tasks for using an interrupt may include reading a rotary encoder, or monitoring user input.
-          </p>
-          <p class="vspace"></p><p>If you wanted to insure that a program always caught the pulses from a rotary encoder, so that it never misses a pulse, it would make it very tricky to write a program to do anything else, because the program would need to constantly poll the sensor lines for the encoder, in order to catch pulses when they occurred. Other sensors have a similar interface dynamic too, such as trying to read a sound sensor that is trying to catch a click, or an infrared slot sensor (photo-interrupter) trying to catch a coin drop. In all of these situations, using an interrupt can free the microcontroller to get some other work done while not missing the input.
-          </p>
-          <p class="vspace"></p><h4>About Interrupt Service Routines</h4>
-          <p><span class="wikiword">ISRs</span> are special kinds of functions that have some unique limitations most other functions do not have.  An ISR cannot have any parameters, and they shouldn't return anything.
-          </p>
-          <p class="vspace"></p><p>Generally, an ISR should be as short and fast as possible. If your sketch uses multiple <span class="wikiword">ISRs</span>, only one can run at a time, other interrupts will be ignored (turned off) until the current one is finished. as delay() and millis() both rely on interrupts, they will not work while an ISR is running. delayMicroseconds(), which does not rely on interrupts, will work as expected.
-          </p>
-          <p class="vspace"></p><p>Typically global variables are used to pass data between an ISR and the main program. To make sure variables used in an ISR are updated correctly, declare them as <code>volatile</code>. 
-          </p>
-          <p class="vspace"></p><p>For more information on interrupts, see <a class="urllink" href="http://gammon.com.au/interrupts" target="_blank" rel="nofollow">Nick Gammon's notes</a>.
-          </p>
-          <p class="vspace"></p><h4>Syntax</h4>
-          <table width="80%" border="0" cellspacing="0" cellpadding="5"><tbody><tr><td width="400" valign="top"> attachInterrupt(interrupt, ISR, mode)
-          </td></tr><tr><td width="400" valign="top"> attachInterrupt(pin, ISR, mode)
-          </td><td valign="top"> (<em>Arduino Due only</em>)
-          </td></tr></tbody></table>
           <p class="vspace"></p><h4>Parameters</h4>
-          <table width="80%" border="0" cellspacing="0" cellpadding="5"><tbody><tr><td width="150" valign="top"> <strong>interrupt</strong>: 
-          </td><td width="240" valign="top"> the number of the interrupt (<em>int</em>)
-          <p class="vspace"></p></td></tr><tr><td width="150" valign="top">  <strong>pin</strong>:
-          </td><td width="240" valign="top"> the pin number
-          </td><td valign="top">(<em>Arduino Due only</em>)
-          <p class="vspace"></p></td></tr><tr><td width="150" valign="top"> <strong>ISR</strong>:
-          </td><td width="240" valign="top"> the ISR to call when the interrupt occurs; this function must take no parameters and return nothing. This function is sometimes referred to as an <em>interrupt service routine.</em>
-          <p class="vspace"></p></td></tr><tr><td width="150" valign="top"> <strong>mode</strong>:
-          </td><td width="240" valign="top">
-          <p>defines when the interrupt should be triggered. Four contstants are predefined as valid values:
-          </p><ul><li><strong>LOW</strong> to trigger the interrupt whenever the pin is low, 
-          </li><li><strong>CHANGE</strong> to trigger the interrupt whenever the pin changes value
-          </li><li><strong>RISING</strong> to trigger when the pin goes from low to high, 
-          </li><li><strong>FALLING</strong> for when the pin goes from high to low.
-          </li></ul><p class="vspace"></p></td></tr><tr><td width="150" valign="top">
-          </td><td width="240" valign="top">
-          <p>The Due board allows also:
+          <p>None
           </p>
-          <p class="vspace"></p></td></tr><tr><td width="150" valign="top">
-          </td><td width="240" valign="top">
-          <ul><li><strong>HIGH</strong> to trigger the interrupt whenever the pin is high.
-          </li></ul></td><td valign="top">(<em>Arduino Due only</em>)
-          <p class="vspace"></p></td></tr></tbody></table>
           <p class="vspace"></p><h4>Returns</h4>
-          <p>none
+          <p>None
           </p>
           <p class="vspace"></p><h4>Example</h4>
-          <p>
-          <div class="sourceblock " id="sourceblock1">
-            <div class="sourceblocktext"><div class="arduino"><span class="kw1">int</span> pin <span class="sy0">=</span> <span class="nu0">13</span><span class="sy0">;</span><br>
-          volatile <span class="kw1">int</span> state <span class="sy0">=</span> <span class="kw2">LOW</span><span class="sy0">;</span><br>
-          <br>
-          <span class="kw1">void</span> <span class="kw3">setup</span><span class="br0">(</span><span class="br0">)</span><br>
-          <span class="br0">{</span><br>
-          &nbsp; <span class="kw1">pinMode</span><span class="br0">(</span>pin<span class="sy0">,</span> <span class="kw2">OUTPUT</span><span class="br0">)</span><span class="sy0">;</span><br>
-          &nbsp; <span class="kw1">attachInterrupt</span><span class="br0">(</span><span class="nu0">0</span><span class="sy0">,</span> blink<span class="sy0">,</span> <span class="kw2">CHANGE</span><span class="br0">)</span><span class="sy0">;</span><br>
-          <span class="br0">}</span><br>
-          <br>
-          <span class="kw1">void</span> <span class="kw3">loop</span><span class="br0">(</span><span class="br0">)</span><br>
-          <span class="br0">{</span><br>
-          &nbsp; <span class="kw1">digitalWrite</span><span class="br0">(</span>pin<span class="sy0">,</span> state<span class="br0">)</span><span class="sy0">;</span><br>
-          <span class="br0">}</span><br>
-          <br>
-          <span class="kw1">void</span> blink<span class="br0">(</span><span class="br0">)</span><br>
-          <span class="br0">{</span><br>
-          &nbsp; state <span class="sy0">=</span> <span class="sy0">!</span>state<span class="sy0">;</span><br>
-          <span class="br0">}</span></div></div>
+          <pre>void setup() {}
+
+          void loop()
+          {
+            noInterrupts();
+            // critical, time-sensitive code here
+            interrupts();
+            // other code here
+          }
+
+          </pre>
           </div>
       ]]>
     </description>
