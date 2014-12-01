@@ -86,7 +86,7 @@ namespace XPlatformCloudKit.ViewModels
             //                                       orderby grp.GetOrderPreference()
             //                                       select new Group<Item>(grp.Key, grp)).ToList();
 
-            ItemGroups = new List<Group<Item>>(items.BuildQuery()).ToList(); //better LINQ expression building
+            ItemGroups = new List<Group<Item>>(items.BuildQuery()).ToList(); //better way to handle LINQ queries
 
             IsBusy = false;
 

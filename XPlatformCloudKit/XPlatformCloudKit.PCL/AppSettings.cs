@@ -27,9 +27,8 @@ namespace XPlatformCloudKit
         public static int CacheIntervalInMinutes = 60;
 
         //Turn on and off group ordering
-        public static bool EnableOrderByClause = false;
+        public static bool UseOrderByClause = true;
         public static bool ByAscendingOrder = true;
-
         #endregion
 
         #region AzureMobileService Settings

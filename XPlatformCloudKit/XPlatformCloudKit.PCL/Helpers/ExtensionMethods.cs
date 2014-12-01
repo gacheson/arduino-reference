@@ -24,13 +24,13 @@ namespace XPlatformCloudKit.Helpers
         //        return itemGroup.Key; //Sort all groups alphabetically
         //}
 
+        //returns a LINQ query by which the Groups are ordered in the ItemsShowcaseView
         public static IEnumerable<Group<Item>> BuildQuery(this List<Item> items)
         {
             var query = items.GroupBy(i => i.Group);
 
-            if (AppSettings.EnableOrderByClause)
+            if (AppSettings.UseOrderByClause)
             {
-
                 if (AppSettings.ByAscendingOrder)
                 {
                     query = query.OrderBy(g => g.Key);
