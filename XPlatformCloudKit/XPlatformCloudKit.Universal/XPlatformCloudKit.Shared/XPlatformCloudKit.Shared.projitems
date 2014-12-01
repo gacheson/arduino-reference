@@ -46,6 +46,7 @@
   <ItemGroup>
     <Content Include="$(MSBuildThisFileDirectory)Assets\Abacus.png" />
     <Content Include="$(MSBuildThisFileDirectory)Assets\BadgeLogo.png" />
+    <Content Include="$(MSBuildThisFileDirectory)Assets\BadgeLogoAlt.png" />
     <Content Include="$(MSBuildThisFileDirectory)Assets\BinaryCode.png" />
     <Content Include="$(MSBuildThisFileDirectory)Assets\Braces.png" />
     <Content Include="$(MSBuildThisFileDirectory)Assets\Cable.png" />
@@ -56,14 +57,20 @@
     <Content Include="$(MSBuildThisFileDirectory)Assets\Logo310px.png" />
     <Content Include="$(MSBuildThisFileDirectory)Assets\Logo70px.png" />
     <Content Include="$(MSBuildThisFileDirectory)Assets\Logo44px.png" />
-    <Content Include="$(MSBuildThisFileDirectory)Assets\Settings.png" />
+    <Content Include="$(MSBuildThisFileDirectory)Assets\LogoAlt.png" />
+    <Content Include="$(MSBuildThisFileDirectory)Assets\LogoAlt310px.png" />
+    <Content Include="$(MSBuildThisFileDirectory)Assets\LogoAlt70px.png" />
     <Content Include="$(MSBuildThisFileDirectory)Assets\SmallLogo.png" />
+    <Content Include="$(MSBuildThisFileDirectory)Assets\SmallLogoAlt.png" />
     <Content Include="$(MSBuildThisFileDirectory)Assets\SplashScreen.png" />
     <Content Include="$(MSBuildThisFileDirectory)Assets\StoreLogo.png" />
+    <Content Include="$(MSBuildThisFileDirectory)Assets\StoreLogoAlt.png" />
+    <Content Include="$(MSBuildThisFileDirectory)Assets\Tile.png" />
     <Content Include="$(MSBuildThisFileDirectory)Assets\Timer.png" />
     <Content Include="$(MSBuildThisFileDirectory)Assets\UsbPlug.png" />
     <Content Include="$(MSBuildThisFileDirectory)Assets\WallpaperHorizontal.png" />
     <Content Include="$(MSBuildThisFileDirectory)Assets\WallpaperVertical.png" />
+    <Content Include="$(MSBuildThisFileDirectory)Assets\WideLogoAlt.png" />
     <Content Include="$(MSBuildThisFileDirectory)Assets\WideLogo.png" />
   </ItemGroup>
 </Project>

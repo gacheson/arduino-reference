@@ -20,11 +20,15 @@ namespace XPlatformCloudKit
     {
         #region Global Options
         //The name of your applicaion, this value appears at the top of your app
-        public static string ApplicationName = "Arduino Reference";
+        public static string ApplicationName = "Arduino Language Reference";
 
         //Timeframe in minutes to store data before making new request to Data Source
         //set to negative value to disable caching
         public static int CacheIntervalInMinutes = 60;
+
+        //Turn on and off group ordering
+        public static bool EnableOrderByClause = false;
+
         #endregion
 
         #region AzureMobileService Settings

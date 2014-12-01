@@ -193,7 +193,7 @@
   <!--Utilities - PROGMEM-->
   <item>
     <title>PROGMEM</title>
-    <subtitle></subtitle>
+    <subtitle>dataType varName[ ] PROGMEM = { };</subtitle>
     <description>
       <![CDATA[
           <div id="wikitext">
@@ -321,7 +321,7 @@
           </div>
       ]]>
     </description>
-    <image>/Assets/Settings.png</image>
+    <image>/Assets/Tile.png</image>
     <group>Utilities</group>
   </item>
 
