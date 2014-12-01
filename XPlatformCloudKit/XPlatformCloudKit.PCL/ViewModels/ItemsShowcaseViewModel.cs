@@ -81,19 +81,12 @@ namespace XPlatformCloudKit.ViewModels
             items = new List<Item>();
             await DoFetchDataServices(EnabledDataServices, overrideCache);
 
-            if (AppSettings.EnableOrderByClause)
-            {
-                ItemGroups = new List<Group<Item>>(from item in items
-                                                   group item by item.Group into grp
-                                                   orderby grp.GetOrderPreference()
-                                                   select new Group<Item>(grp.Key, grp)).ToList();
-            }
-            else
-            {
-                ItemGroups = new List<Group<Item>>(from item in items
-                                                   group item by item.Group into grp
-                                                   select new Group<Item>(grp.Key, grp)).ToList();
-            }
+            //    ItemGroups = new List<Group<Item>>(from item in items
+            //                                       group item by item.Group into grp
+            //                                       orderby grp.GetOrderPreference()
+            //                                       select new Group<Item>(grp.Key, grp)).ToList();
+
+            ItemGroups = new List<Group<Item>>(items.BuildQuery()).ToList(); //better LINQ expression building
 
             IsBusy = false;
 

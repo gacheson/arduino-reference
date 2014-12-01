@@ -28,6 +28,7 @@ namespace XPlatformCloudKit
 
         //Turn on and off group ordering
         public static bool EnableOrderByClause = false;
+        public static bool ByAscendingOrder = true;
 
         #endregion
 
