@@ -22,7 +22,7 @@
         <Extension Category="windows.search" />
       </Extensions>
       <m2:VisualElements DisplayName="XPlatformCloudKit.Win81" Description="XPlatformCloudKit.Win8" BackgroundColor="#00979D" ForegroundText="light" Square150x150Logo="Assets\Logo.png" Square30x30Logo="Assets\SmallLogo.png">
-        <m2:DefaultTile Wide310x150Logo="Assets\WideLogo.png">
+        <m2:DefaultTile Wide310x150Logo="Assets\WideLogo.png" Square310x310Logo="Assets\Logo310px.png" Square70x70Logo="Assets\Logo70px.png" ShortName="Arduino Reference">
           <m2:ShowNameOnTiles>
             <m2:ShowOn Tile="square150x150Logo" />
             <m2:ShowOn Tile="wide310x150Logo" />

@@ -50,7 +50,7 @@
         </html>
       ]]>
     </description>
-    <image>/Assets/Abacus.png</image>
+    <image>/Assets/Braces.png</image>
     <group>Structure</group>
   </item>
   <!--Structure - loop()-->
@@ -111,7 +111,7 @@
         </html>
       ]]>
     </description>
-    <image>/Assets/Abacus.png</image>
+    <image>/Assets/Braces.png</image>
     <group>Structure</group>
   </item>
 
@@ -321,7 +321,7 @@
           </div>
       ]]>
     </description>
-    <image>/Assets/Abacus.png</image>
+    <image>/Assets/Settings.png</image>
     <group>Utilities</group>
   </item>
 
@@ -376,7 +376,7 @@
         </div>
       ]]>
     </description>
-    <image>/Assets/Abacus.png</image>
+    <image>/Assets/UsbPlug.png</image>
     <group>Digital I/O</group>
   </item>
   <!--Digital I/O - digitalWrite()-->
@@ -432,7 +432,7 @@
           </div>
       ]]>
     </description>
-    <image>/Assets/Abacus.png</image>
+    <image>/Assets/UsbPlug.png</image>
     <group>Digital I/O</group>
   </item>
   <!--Digital I/O - digitalRead()-->
@@ -484,7 +484,7 @@
           </div>
       ]]>
     </description>
-    <image>/Assets/Abacus.png</image>
+    <image>/Assets/UsbPlug.png</image>
     <group>Digital I/O</group>
   </item>
 
@@ -523,7 +523,7 @@
           </div>
       ]]>
   </description>
-  <image>/Assets/Abacus.png</image>
+  <image>/Assets/HeadphoneJack.png</image>
   <group>Analog I/O</group>
 </item>
   <!--Analog I/O - analogRead()-->
@@ -573,7 +573,7 @@
           </div>
       ]]>
     </description>
-    <image>/Assets/Abacus.png</image>
+    <image>/Assets/HeadphoneJack.png</image>
     <group>Analog I/O</group>
   </item>
   <!--Analog I/O - analogWrite()-->
@@ -634,7 +634,7 @@
           </div>
       ]]>
     </description>
-    <image>/Assets/Abacus.png</image>
+    <image>/Assets/HeadphoneJack.png</image>
     <group>Analog I/O</group>
   </item>
 
@@ -708,7 +708,7 @@
           </div>
       ]]>
     </description>
-    <image>/Assets/Abacus.png</image>
+    <image>/Assets/Infinity.png</image>
     <group>Due Only</group>
   </item>
   <!--Due Only - analogWriteResolution()-->
@@ -781,7 +781,7 @@
           </div>
       ]]>
   </description>
-  <image>/Assets/Abacus.png</image>
+  <image>/Assets/Infinity.png</image>
   <group>Due Only</group>
 </item>
 
@@ -819,7 +819,7 @@
           </div>
       ]]>
   </description>
-  <image>/Assets/Abacus.png</image>
+  <image>/Assets/Cable.png</image>
   <group>Advanced I/O</group>
 </item>
   <!--Advanced I/O - noTone()-->
@@ -846,7 +846,7 @@
           </div>
       ]]>
     </description>
-    <image>/Assets/Abacus.png</image>
+    <image>/Assets/Cable.png</image>
     <group>Advanced I/O</group>
   </item>
   <!--Advanced I/O - shiftOut()-->
@@ -947,7 +947,7 @@
           </div>
       ]]>
     </description>
-    <image>/Assets/Abacus.png</image>
+    <image>/Assets/Cable.png</image>
     <group>Advanced I/O</group>
   </item>
   <!--Advanced I/O - shiftIn()-->
@@ -981,7 +981,7 @@
         </div>
       ]]>
     </description>
-    <image>/Assets/Abacus.png</image>
+    <image>/Assets/Cable.png</image>
     <group>Advanced I/O</group>
   </item>
   <!--Advanced I/O - pulseIn()-->
@@ -1029,7 +1029,7 @@
         </div>
       ]]>
     </description>
-    <image>/Assets/Abacus.png</image>
+    <image>/Assets/Cable.png</image>
     <group>Advanced I/O</group>
   </item>
 
@@ -1055,7 +1055,7 @@
           </div>
       ]]>
     </description>
-    <image>/Assets/Abacus.png</image>
+    <image>/Assets/BinaryCode.png</image>
     <group>Bits and Bytes</group>
   </item>
   <!--Bits and Bytes - highByte()-->
@@ -1080,7 +1080,7 @@
         </div>
       ]]>
   </description>
-  <image>/Assets/Abacus.png</image>
+  <image>/Assets/BinaryCode.png</image>
   <group>Bits and Bytes</group>
 </item>
   <!--Bits and Bytes - bitRead()-->
@@ -1107,7 +1107,7 @@
         </div>
       ]]>
   </description>
-  <image>/Assets/Abacus.png</image>
+  <image>/Assets/BinaryCode.png</image>
   <group>Bits and Bytes</group>
 </item>
   <!--Bits and Bytes - bitWrite()-->
@@ -1136,7 +1136,7 @@
         </div>
       ]]>
   </description>
-  <image>/Assets/Abacus.png</image>
+  <image>/Assets/BinaryCode.png</image>
   <group>Bits and Bytes</group>
 </item>
   <!--Bits and Bytes - bitSet()-->
@@ -1164,7 +1164,7 @@
           </div>
       ]]>
   </description>
-  <image>/Assets/Abacus.png</image>
+  <image>/Assets/BinaryCode.png</image>
   <group>Bits and Bytes</group>
 </item>
   <!--Bits and Bytes - bitClear()-->
@@ -1191,7 +1191,7 @@
         </div>
       ]]>
   </description>
-  <image>/Assets/Abacus.png</image>
+  <image>/Assets/BinaryCode.png</image>
   <group>Bits and Bytes</group>
 </item>
   <!--Bits and Bytes - bit()-->
@@ -1216,7 +1216,7 @@
         </div>
       ]]>
   </description>
-  <image>/Assets/Abacus.png</image>
+  <image>/Assets/BinaryCode.png</image>
   <group>Bits and Bytes</group>
 </item>
 
@@ -1312,7 +1312,7 @@
           </div>
       ]]>
   </description>
-  <image>/Assets/Abacus.png</image>
+  <image>/Assets/Listen.png</image>
   <group>External Interrupts</group>
 </item>
   <!--External Interrupts - detachInterrupt()-->
@@ -1337,7 +1337,7 @@
           </div>
       ]]>
     </description>
-    <image>/Assets/Abacus.png</image>
+    <image>/Assets/Listen.png</image>
     <group>External Interrupts</group>
   </item>
 
@@ -1371,7 +1371,7 @@
           </div>
       ]]>
     </description>
-    <image>/Assets/Abacus.png</image>
+    <image>/Assets/Timer.png</image>
     <group>Interrupts</group>
   </item>
   <!--Interrupts -  noInterrupts()-->
@@ -1405,7 +1405,7 @@
           </div>
       ]]>
     </description>
-    <image>/Assets/Abacus.png</image>
+    <image>/Assets/Timer.png</image>
     <group>Interrupts</group>
   </item>
 </items>
