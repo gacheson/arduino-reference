@@ -45,7 +45,6 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="$(MSBuildThisFileDirectory)Assets\Abacus.png" />
-    <Content Include="$(MSBuildThisFileDirectory)Assets\AudioWave.png" />
     <Content Include="$(MSBuildThisFileDirectory)Assets\BadgeLogo.png" />
     <Content Include="$(MSBuildThisFileDirectory)Assets\BinaryCode.png" />
     <Content Include="$(MSBuildThisFileDirectory)Assets\Braces.png" />
