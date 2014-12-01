@@ -328,7 +328,7 @@
   <!--Digital I/O - pinMode()-->
   <item>
     <title>pinMode()</title>
-    <subtitle></subtitle>
+    <subtitle>pin, mode</subtitle>
     <description>
       <![CDATA[
         <div id="wikitext">
@@ -382,7 +382,7 @@
   <!--Digital I/O - digitalWrite()-->
   <item>
     <title>digitalWrite()</title>
-    <subtitle></subtitle>
+    <subtitle>pin, value</subtitle>
     <description>
       <![CDATA[
           <div id="wikitext">
@@ -438,7 +438,7 @@
   <!--Digital I/O - digitalRead()-->
   <item>
     <title>digitalRead()</title>
-    <subtitle></subtitle>
+    <subtitle>pin</subtitle>
     <description>
       <![CDATA[
           <div id="wikitext">
@@ -491,7 +491,7 @@
   <!--Analog I/O - analogReference()-->
   <item>
   <title>analogReference()</title>
-  <subtitle></subtitle>
+  <subtitle>type</subtitle>
   <description>
     <![CDATA[
           <div id="wikitext">
@@ -529,7 +529,7 @@
   <!--Analog I/O - analogRead()-->
   <item>
     <title>analogRead()</title>
-    <subtitle></subtitle>
+    <subtitle>pin</subtitle>
     <description>
       <![CDATA[
           <div id="wikitext">
@@ -579,7 +579,7 @@
   <!--Analog I/O - analogWrite()-->
   <item>
     <title>analogWrite()</title>
-    <subtitle></subtitle>
+    <subtitle>pin, value</subtitle>
     <description>
       <![CDATA[
           <div id="wikitext">
@@ -641,7 +641,7 @@
   <!--Due Only - analogReadResolution()-->
   <item>
     <title>analogReadResolution()</title>
-    <subtitle></subtitle>
+    <subtitle>bits</subtitle>
     <description>
       <![CDATA[
           <div id="wikitext">
@@ -714,7 +714,7 @@
   <!--Due Only - analogWriteResolution()-->
   <item>
   <title>analogWriteResolution()</title>
-  <subtitle></subtitle>
+  <subtitle>bits</subtitle>
   <description>
     <![CDATA[
           <div id="wikitext">
@@ -788,7 +788,7 @@
   <!--Advanced I/O - tone()-->
   <item>
   <title>tone()</title>
-  <subtitle></subtitle>
+  <subtitle>pin, frequency</subtitle>
   <description>
     <![CDATA[
           <div id="wikitext">
@@ -825,7 +825,7 @@
   <!--Advanced I/O - noTone()-->
   <item>
     <title>noTone()</title>
-    <subtitle></subtitle>
+    <subtitle>pin</subtitle>
     <description>
       <![CDATA[
           <div id="wikitext">
@@ -852,7 +852,7 @@
   <!--Advanced I/O - shiftOut()-->
   <item>
     <title>shiftOut()</title>
-    <subtitle></subtitle>
+    <subtitle>dataPin, clockPin, bitOrder, value</subtitle>
     <description>
       <![CDATA[
           <div id="wikitext">
@@ -953,7 +953,7 @@
   <!--Advanced I/O - shiftIn()-->
   <item>
     <title>shiftIn()</title>
-    <subtitle></subtitle>
+    <subtitle>dataPin, clockPin, bitOrder</subtitle>
     <description>
       <![CDATA[
         <div id="wikitext">
@@ -987,7 +987,7 @@
   <!--Advanced I/O - pulseIn()-->
   <item>
     <title>pulseIn()</title>
-    <subtitle></subtitle>
+    <subtitle>pin, value</subtitle>
     <description>
       <![CDATA[
         <div id="wikitext">
@@ -1036,7 +1036,7 @@
   <!--Bits and Bytes - lowByte()-->
   <item>
     <title>lowByte()</title>
-    <subtitle></subtitle>
+    <subtitle>x</subtitle>
     <description>
       <![CDATA[
           <div id="wikitext">
@@ -1061,7 +1061,7 @@
   <!--Bits and Bytes - highByte()-->
   <item>
   <title>highByte()</title>
-  <subtitle></subtitle>
+  <subtitle>x</subtitle>
   <description>
     <![CDATA[
         <div id="wikitext">
@@ -1086,7 +1086,7 @@
   <!--Bits and Bytes - bitRead()-->
   <item>
   <title>bitRead()</title>
-  <subtitle></subtitle>
+  <subtitle>x, n</subtitle>
   <description>
     <![CDATA[
         <div id="wikitext">
@@ -1113,7 +1113,7 @@
   <!--Bits and Bytes - bitWrite()-->
   <item>
   <title>bitWrite()</title>
-  <subtitle></subtitle>
+  <subtitle>x, n, b</subtitle>
   <description>
     <![CDATA[
         <div id="wikitext">
@@ -1142,7 +1142,7 @@
   <!--Bits and Bytes - bitSet()-->
   <item>
   <title>bitSet()</title>
-  <subtitle></subtitle>
+  <subtitle>x, n</subtitle>
   <description>
     <![CDATA[
           <div id="wikitext">
@@ -1170,7 +1170,7 @@
   <!--Bits and Bytes - bitClear()-->
   <item>
   <title>bitClear()</title>
-  <subtitle></subtitle>
+  <subtitle>x, n</subtitle>
   <description>
     <![CDATA[
         <div id="wikitext">
@@ -1197,7 +1197,7 @@
   <!--Bits and Bytes - bit()-->
   <item>
   <title>bit()</title>
-  <subtitle></subtitle>
+  <subtitle>x</subtitle>
   <description>
     <![CDATA[
         <div id="wikitext">
@@ -1223,7 +1223,7 @@
   <!--External Interrupts - attachInterrupt()-->
   <item>
   <title>attachInterrupt()</title>
-  <subtitle></subtitle>
+  <subtitle>interrupt, ISR, mode</subtitle>
   <description>
     <![CDATA[
           <div id="wikitext">
@@ -1318,7 +1318,7 @@
   <!--External Interrupts - detachInterrupt()-->
   <item>
     <title>detachInterrupt()</title>
-    <subtitle></subtitle>
+    <subtitle>interrupt</subtitle>
     <description>
       <![CDATA[
           <div id="wikitext">
