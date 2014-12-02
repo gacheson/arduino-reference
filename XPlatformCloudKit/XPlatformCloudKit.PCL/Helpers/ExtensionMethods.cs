@@ -52,11 +52,11 @@ namespace XPlatformCloudKit.Helpers
             {
                 if (AppSettings.GroupByAscending)
                 {
-                    group = group.OrderBy(g => g.Key);
+                    group = group.OrderBy(g => g.Key != "About").ThenBy(g => g.Key);
                 }
                 else
                 {
-                    group = group.OrderByDescending(g => g.Key);
+                    group = group.OrderBy(g => g.Key != "About").ThenByDescending(g => g.Key);
                 }
             }
 

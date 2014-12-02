@@ -60,6 +60,7 @@
     <Content Include="$(MSBuildThisFileDirectory)Assets\LogoAlt.png" />
     <Content Include="$(MSBuildThisFileDirectory)Assets\LogoAlt310px.png" />
     <Content Include="$(MSBuildThisFileDirectory)Assets\LogoAlt70px.png" />
+    <Content Include="$(MSBuildThisFileDirectory)Assets\LogoTile.png" />
     <Content Include="$(MSBuildThisFileDirectory)Assets\SmallLogo.png" />
     <Content Include="$(MSBuildThisFileDirectory)Assets\SmallLogoAlt.png" />
     <Content Include="$(MSBuildThisFileDirectory)Assets\SplashScreen.png" />
