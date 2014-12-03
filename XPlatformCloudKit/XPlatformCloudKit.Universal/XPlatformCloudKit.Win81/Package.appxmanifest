@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Package xmlns="http://schemas.microsoft.com/appx/2010/manifest" xmlns:m2="http://schemas.microsoft.com/appx/2013/manifest">
-  <Identity Name="380463a8-098f-4a8a-9466-658efb1e2a93" Publisher="CN=pdecarlo" Version="1.0.0.0" />
+  <Identity Name="380463a8-098f-4a8a-9466-658efb1e2a92" Publisher="CN=pdecarlo" Version="1.0.0.0" />
   <Properties>
     <DisplayName>XPlatformCloudKit.Win81</DisplayName>
     <PublisherDisplayName>pdecarlo</PublisherDisplayName>

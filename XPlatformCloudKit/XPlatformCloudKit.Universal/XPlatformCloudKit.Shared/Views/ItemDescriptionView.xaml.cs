@@ -49,7 +49,7 @@ namespace XPlatformCloudKit.Views
             if (AppSettings.EnablePhoneBackground8X == true)
             {
                 DescriptionGrid.Background = Application.Current.Resources["WallPaperVerticalBrush"] as ImageBrush;              
-                DescriptionGrid.Background.Opacity = .5;
+                //DescriptionGrid.Background.Opacity = .5;
             }
 #endif
         }

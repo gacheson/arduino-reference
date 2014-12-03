@@ -71,7 +71,7 @@ namespace XPlatformCloudKit.Views
                     HubControl.Background = Application.Current.Resources["WallPaperHorizontalBrush"] as ImageBrush;
                 }
 
-                ShowcaseGrid.Background.Opacity = .5;
+                //ShowcaseGrid.Background.Opacity = .5;
             }
 
             if (!AppSettings.EnableSingleVerticalLayoutPhone81)
@@ -292,7 +292,7 @@ namespace XPlatformCloudKit.Views
 
                 if (AppSettings.EnableBackgroundWin8X == true)
                 {
-                    ShowcaseGrid.Background.Opacity = .5;
+                    //ShowcaseGrid.Background.Opacity = .5;
                 }
                 if (AppSettings.EnablePubcenterAdsWin8)
                 {

@@ -44,7 +44,7 @@ namespace XPlatformCloudKit.Views
             if (AppSettings.EnablePhoneBackground8X == true)
             {
                 LayoutRoot.Background = Application.Current.Resources["WallPaperBrush"] as ImageBrush;
-                LayoutRoot.Background.Opacity = .5;
+                //LayoutRoot.Background.Opacity = .5;
             }
         }
 
