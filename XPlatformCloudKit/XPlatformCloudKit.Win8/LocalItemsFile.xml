@@ -1425,12 +1425,12 @@
       }
       .unselectable {
           cursor:default;
-          -webkit-touch-callout: none;
-          -webkit-user-select: none;
-          -khtml-user-select: none;
-          -moz-user-select: none;
-          -ms-user-select: none;
-          user-select: none;
+          -webkit-touch-callout:none;
+          -webkit-user-select:none;
+          -khtml-user-select:none;
+          -moz-user-select:none;
+          -ms-user-select:none;
+          user-select:none;
       }
       #container {
           min-height:100%;
@@ -1459,10 +1459,12 @@
       <div id="body">
       <p>This app is a quick reference for Arduino newbies and ethusiasts alike. Designed for simplicity and ease-of-use, structures, variables, and functions are grouped both visually and categorically. Each tile is labeled and, where applicable, includes a brief mention of its parameters. Tapping on one will open up a detailed explanation.</p>
       <p class="vspace"></p>
-      <p>Only Arduino specific structures, variables, and functions are in this reference. Only the language reference is available at this time. Visit the Arduino main site for the complete reference.</p>
+      <p>Tired of scrolling? Open up the charms bar and tap on 'Search'. Can't find it here? Open up the charms bar and tap on 'Settings' > 'Official Reference'.</p>
+      <p class="vspace"></p>
+      <p>Only Arduino specific structures, variables, and functions of the language are covered in this reference. Visit the Arduino main site for the complete reference.</p>
       <div>
       <div id="footer">
-      <p>The text of the Arduino reference is licensed under a Creative Commons Attribution-ShareAlike 3.0 License. Code samples in the reference are released into the public domain.</p>
+      <p>The text of this reference is licensed under a Creative Commons Attribution-ShareAlike 3.0 License. Code samples in the reference are released into the public domain.</p>
       </div>
       </div>
       ]]>

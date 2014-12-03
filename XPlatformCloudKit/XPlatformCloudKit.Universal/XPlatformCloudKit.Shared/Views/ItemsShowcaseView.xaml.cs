@@ -122,6 +122,20 @@ namespace XPlatformCloudKit.Views
             Uri privacyPolicyUrl = new Uri(AppSettings.PrivacyPolicyUrl);
             var result = await Windows.System.Launcher.LaunchUriAsync(privacyPolicyUrl);
         }
+
+        // Method to add the official reference to the settings charm
+        private void ShowOfficialReference(SettingsPane sender, SettingsPaneCommandsRequestedEventArgs args)
+        {
+            SettingsCommand officialReferenceCommand = new SettingsCommand("officialReference", "Official Reference", (x) => { LaunchOfficialReferenceUrl(); });
+            args.Request.ApplicationCommands.Add(officialReferenceCommand);
+        }
+
+        // Method to launch the url of the official reference
+        async void LaunchOfficialReferenceUrl()
+        {
+            Uri officialReferenceUrl = new Uri("http://arduino.cc/en/Reference/HomePage");
+            var result = await Windows.System.Launcher.LaunchUriAsync(officialReferenceUrl);
+        }
 #endif
 
         void vm_PropertyChanged(object sender, System.ComponentModel.PropertyChangedEventArgs e)
@@ -368,6 +382,12 @@ namespace XPlatformCloudKit.Views
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
 #if WINDOWS_APP
+            //Removes any existing event handlers. Prevents duplication of entries when the charm bar
+            //is opened in the ItemShowcaseView after being opened in the ItemDescriptionView.
+            SettingsPane.GetForCurrentView().CommandsRequested -= ShowOfficialReference;
+            SettingsPane.GetForCurrentView().CommandsRequested -= ShowPrivacyPolicy;
+
+            SettingsPane.GetForCurrentView().CommandsRequested += ShowOfficialReference;
             SettingsPane.GetForCurrentView().CommandsRequested += ShowPrivacyPolicy;
             DataTransferManager.GetForCurrentView().DataRequested += ShareLinkHandler;
 #endif
