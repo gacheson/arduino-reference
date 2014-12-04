@@ -884,64 +884,61 @@ void loop()
           <p>The <strong>dataPin</strong> and <strong>clockPin</strong> must already be configured as outputs by a call to <a class="wikilink" href="http://arduino.cc/en/Reference/PinMode">pinMode</a>().
           </p>
           <p class="vspace"></p><p><strong>shiftOut</strong> is currently written to output 1 byte (8 bits) so it requires a two step operation to output values larger than 255.
+          <pre style="word-wrap: break-word; white-space: pre-wrap;">
+// Do this for MSBFIRST serial
+int data = 500;
+// shift out highbyte
+shiftOut(dataPin, clock, MSBFIRST, (data &gt;&gt; 8));  
+// shift out lowbyte
+shiftOut(dataPin, clock, MSBFIRST, data);
 
-          <div class="sourceblock " id="sourceblock1">
-            <div class="sourceblocktext"><div class="arduino"><br>
-          <span class="co1">// Do this for MSBFIRST serial</span><br>
-          <span class="kw1">int</span> data <span class="sy0">=</span> <span class="nu0">500</span><span class="sy0">;</span><br>
-          <span class="co1">// shift out highbyte</span><br>
-          <span class="kw1">shiftOut</span><span class="br0">(</span>dataPin<span class="sy0">,</span> clock<span class="sy0">,</span> <span class="kw2">MSBFIRST</span><span class="sy0">,</span> <span class="br0">(</span>data <span class="sy0">&gt;&gt;</span> <span class="nu0">8</span><span class="br0">)</span><span class="br0">)</span><span class="sy0">;</span> &nbsp;<br>
-          <span class="co1">// shift out lowbyte</span><br>
-          <span class="kw1">shiftOut</span><span class="br0">(</span>dataPin<span class="sy0">,</span> clock<span class="sy0">,</span> <span class="kw2">MSBFIRST</span><span class="sy0">,</span> data<span class="br0">)</span><span class="sy0">;</span><br>
-          <br>
-          <span class="co1">// Or do this for LSBFIRST serial</span><br>
-          data <span class="sy0">=</span> <span class="nu0">500</span><span class="sy0">;</span><br>
-          <span class="co1">// shift out lowbyte</span><br>
-          <span class="kw1">shiftOut</span><span class="br0">(</span>dataPin<span class="sy0">,</span> clock<span class="sy0">,</span> <span class="kw2">LSBFIRST</span><span class="sy0">,</span> data<span class="br0">)</span><span class="sy0">;</span> &nbsp;<br>
-          <span class="co1">// shift out highbyte </span><br>
-          <span class="kw1">shiftOut</span><span class="br0">(</span>dataPin<span class="sy0">,</span> clock<span class="sy0">,</span> <span class="kw2">LSBFIRST</span><span class="sy0">,</span> <span class="br0">(</span>data <span class="sy0">&gt;&gt;</span> <span class="nu0">8</span><span class="br0">)</span><span class="br0">)</span><span class="sy0">;</span> <br>
-          &nbsp;</div></div>
+// Or do this for LSBFIRST serial
+data = 500;
+// shift out lowbyte
+shiftOut(dataPin, clock, LSBFIRST, data);  
+// shift out highbyte 
+shiftOut(dataPin, clock, LSBFIRST, (data &gt;&gt; 8)); 
+</pre>
           <p class="vspace"></p><h4>Example</h4>
           <p><em>For accompanying circuit, see the <a class="wikilink" href="http://arduino.cc/en/Tutorial/ShiftOut">tutorial on controlling a 74HC595 shift register</a>.</em>
           </p>
           <p class="vspace"></p><p>
-          <div class="sourceblock " id="sourceblock2">
-            <div class="sourceblocktext"><div class="arduino"><span class="co1">//**************************************************************//</span><br>
-          <span class="co1">// &nbsp;Name &nbsp; &nbsp;: shiftOutCode, Hello World &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; //</span><br>
-          <span class="co1">// &nbsp;Author &nbsp;: Carlyn Maw,Tom Igoe &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; //</span><br>
-          <span class="co1">// &nbsp;Date &nbsp; &nbsp;: 25 Oct, 2006 &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;//</span><br>
-          <span class="co1">// &nbsp;Version : 1.0 &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; //</span><br>
-          <span class="co1">// &nbsp;Notes &nbsp; : Code for using a 74HC595 Shift Register &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; //</span><br>
-          <span class="co1">// &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;: to count from 0 to 255 &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;//</span><br>
-          <span class="co1">//****************************************************************</span><br>
-          <br>
-          <span class="co1">//Pin connected to ST_CP of 74HC595</span><br>
-          <span class="kw1">int</span> latchPin <span class="sy0">=</span> <span class="nu0">8</span><span class="sy0">;</span><br>
-          <span class="co1">//Pin connected to SH_CP of 74HC595</span><br>
-          <span class="kw1">int</span> clockPin <span class="sy0">=</span> <span class="nu0">12</span><span class="sy0">;</span><br>
-          <span class="co1">////Pin connected to DS of 74HC595</span><br>
-          <span class="kw1">int</span> dataPin <span class="sy0">=</span> <span class="nu0">11</span><span class="sy0">;</span><br>
-          <br>
-          <span class="kw1">void</span> <span class="kw3">setup</span><span class="br0">(</span><span class="br0">)</span> <span class="br0">{</span><br>
-          &nbsp; <span class="co1">//set pins to output because they are addressed in the main loop</span><br>
-          &nbsp; <span class="kw1">pinMode</span><span class="br0">(</span>latchPin<span class="sy0">,</span> <span class="kw2">OUTPUT</span><span class="br0">)</span><span class="sy0">;</span><br>
-          &nbsp; <span class="kw1">pinMode</span><span class="br0">(</span>clockPin<span class="sy0">,</span> <span class="kw2">OUTPUT</span><span class="br0">)</span><span class="sy0">;</span><br>
-          &nbsp; <span class="kw1">pinMode</span><span class="br0">(</span>dataPin<span class="sy0">,</span> <span class="kw2">OUTPUT</span><span class="br0">)</span><span class="sy0">;</span><br>
-          <span class="br0">}</span><br>
-          <br>
-          <span class="kw1">void</span> <span class="kw3">loop</span><span class="br0">(</span><span class="br0">)</span> <span class="br0">{</span><br>
-          &nbsp; <span class="co1">//count up routine</span><br>
-          &nbsp; <span class="kw1">for</span> <span class="br0">(</span><span class="kw1">int</span> j <span class="sy0">=</span> <span class="nu0">0</span><span class="sy0">;</span> j <span class="sy0">&lt;</span> <span class="nu0">256</span><span class="sy0">;</span> j<span class="sy0">++</span><span class="br0">)</span> <span class="br0">{</span><br>
-          &nbsp; &nbsp; <span class="co1">//ground latchPin and hold low for as long as you are transmitting</span><br>
-          &nbsp; &nbsp; <span class="kw1">digitalWrite</span><span class="br0">(</span>latchPin<span class="sy0">,</span> <span class="kw2">LOW</span><span class="br0">)</span><span class="sy0">;</span><br>
-          &nbsp; &nbsp; <span class="kw1">shiftOut</span><span class="br0">(</span>dataPin<span class="sy0">,</span> clockPin<span class="sy0">,</span> <span class="kw2">LSBFIRST</span><span class="sy0">,</span> j<span class="br0">)</span><span class="sy0">;</span> &nbsp; <br>
-          &nbsp; &nbsp; <span class="co1">//return the latch pin high to signal chip that it </span><br>
-          &nbsp; &nbsp; <span class="co1">//no longer needs to listen for information</span><br>
-          &nbsp; &nbsp; <span class="kw1">digitalWrite</span><span class="br0">(</span>latchPin<span class="sy0">,</span> <span class="kw2">HIGH</span><span class="br0">)</span><span class="sy0">;</span><br>
-          &nbsp; &nbsp; <span class="kw1">delay</span><span class="br0">(</span><span class="nu0">1000</span><span class="br0">)</span><span class="sy0">;</span><br>
-          &nbsp; <span class="br0">}</span><br>
-          <span class="br0">}</span> <br>
-          &nbsp;</div></div>
+          <pre style="word-wrap: break-word; white-space: pre-wrap;">//**************************************************************//
+//  Name    : shiftOutCode, Hello World                         //
+//  Author  : Carlyn Maw,Tom Igoe                               //
+//  Date    : 25 Oct, 2006                                      //
+//  Version : 1.0                                               //
+//  Notes   : Code for using a 74HC595 Shift Register           //
+//          : to count from 0 to 255                            //
+//****************************************************************
+
+//Pin connected to ST_CP of 74HC595
+int latchPin = 8;
+//Pin connected to SH_CP of 74HC595
+int clockPin = 12;
+////Pin connected to DS of 74HC595
+int dataPin = 11;
+
+void setup() {
+  //set pins to output because they are addressed in the main loop
+  pinMode(latchPin, OUTPUT);
+  pinMode(clockPin, OUTPUT);
+  pinMode(dataPin, OUTPUT);
+}
+
+void loop() {
+  //count up routine
+  for (int j = 0; j &lt; 256; j++) {
+    //ground latchPin and hold low for as long as you are transmitting
+    digitalWrite(latchPin, LOW);
+    shiftOut(dataPin, clockPin, LSBFIRST, j);   
+    //return the latch pin high to signal chip that it 
+    //no longer needs to listen for information
+    digitalWrite(latchPin, HIGH);
+    delay(1000);
+  }
+} 
+</pre>
           </div>
       ]]>
     </description>
