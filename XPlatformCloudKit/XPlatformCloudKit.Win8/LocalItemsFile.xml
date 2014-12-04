@@ -358,23 +358,22 @@
         </p>
         <p class="vspace"></p><h4>Example</h4>
         <p>
-        <div class="sourceblock " id="sourceblock1">
-          <div class="sourceblocktext"><div class="arduino"><br>
-        <br>
-        <span class="kw1">int</span> ledPin <span class="sy0">=</span> <span class="nu0">13</span><span class="sy0">;</span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="co1">// LED connected to digital pin 13</span><br>
-        <br>
-        <span class="kw1">void</span> <span class="kw3">setup</span><span class="br0">(</span><span class="br0">)</span><br>
-        <span class="br0">{</span><br>
-        &nbsp; <span class="kw1">pinMode</span><span class="br0">(</span>ledPin<span class="sy0">,</span> <span class="kw2">OUTPUT</span><span class="br0">)</span><span class="sy0">;</span> &nbsp; &nbsp; &nbsp;<span class="co1">// sets the digital pin as output</span><br>
-        <span class="br0">}</span><br>
-        <br>
-        <span class="kw1">void</span> <span class="kw3">loop</span><span class="br0">(</span><span class="br0">)</span><br>
-        <span class="br0">{</span><br>
-        &nbsp; <span class="kw1">digitalWrite</span><span class="br0">(</span>ledPin<span class="sy0">,</span> <span class="kw2">HIGH</span><span class="br0">)</span><span class="sy0">;</span> &nbsp; <span class="co1">// sets the LED on</span><br>
-        &nbsp; <span class="kw1">delay</span><span class="br0">(</span><span class="nu0">1000</span><span class="br0">)</span><span class="sy0">;</span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span class="co1">// waits for a second</span><br>
-        &nbsp; <span class="kw1">digitalWrite</span><span class="br0">(</span>ledPin<span class="sy0">,</span> <span class="kw2">LOW</span><span class="br0">)</span><span class="sy0">;</span> &nbsp; &nbsp;<span class="co1">// sets the LED off</span><br>
-        &nbsp; <span class="kw1">delay</span><span class="br0">(</span><span class="nu0">1000</span><span class="br0">)</span><span class="sy0">;</span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span class="co1">// waits for a second</span><br>
-        <span class="br0">}</span></div></div>
+        <pre style="word-wrap: break-word; white-space: pre-wrap;">
+
+int ledPin = 13;                 // LED connected to digital pin 13
+
+void setup()
+{
+  pinMode(ledPin, OUTPUT);      // sets the digital pin as output
+}
+
+void loop()
+{
+  digitalWrite(ledPin, HIGH);   // sets the LED on
+  delay(1000);                  // waits for a second
+  digitalWrite(ledPin, LOW);    // sets the LED off
+  delay(1000);                  // waits for a second
+}</pre>
         <p class="vspace"></p><h4>Note</h4>
         <p>The analog input pins can be used as digital pins, referred to as A0, A1, etc.  
         </p>
